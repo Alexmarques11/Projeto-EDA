@@ -1,6 +1,4 @@
 ﻿  FClientes.c
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(15,25): warning C4013: 'malloc' undefined; assuming extern returning int
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(17,9): warning C4013: 'free' undefined; assuming extern returning int
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(15,15): warning C4047: 'initializing': 'Clientes *' differs in levels of indirection from 'int'
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(34,12): warning C4047: 'initializing': 'Clientes *' differs in levels of indirection from 'int'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(91,9): warning C4033: 'listarClientes' must return a value
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(107): warning C4715: 'listarClientes': not all control paths return a value
   Projeto-EDA.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\x64\Debug\Projeto-EDA.exe

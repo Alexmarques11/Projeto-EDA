@@ -7,8 +7,10 @@
  *********************************************************************/
 
 #pragma once
+#pragma warning (disable: 4996)
 #include <stdio.h>
 #include <stdbool.h>
+#define _CTR_SECURE_NO_WARNINGS
 
 #ifndef Clientesh
 #define Clientesh
@@ -29,6 +31,8 @@ bool escreverCliente(Clientes* cliente, FILE* ficheiro);
 Clientes* criarCliente();
 
 int adicionarCliente();
+
+Clientes* listarClientes();
 
 #endif // !Clientesh
 
