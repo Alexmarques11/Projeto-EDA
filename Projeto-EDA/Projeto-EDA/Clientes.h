@@ -22,6 +22,7 @@ typedef struct Clientes {
     float saldo;
     char nome[50];
     char morada[100];
+    struct Clientes* proximo;
 }Clientes;
 
 Clientes* lerClientes(FILE* ficheiro);
@@ -32,7 +33,7 @@ Clientes* criarCliente();
 
 int adicionarCliente();
 
-Clientes* listarClientes();
+Clientes* mostrarCLiente();
 
 #endif // !Clientesh
 

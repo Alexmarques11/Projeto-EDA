@@ -13,6 +13,45 @@
 #define _CTR_SECURE_NO_WARNINGS
 #include <stdbool.h>
 
+/**
+* \brief  Esta função serve para mostrar todos os clientes que estão guardados no ficheiro "clientes.bin"
+ *
+ * 1º Verifa se o ficheiro existe
+ * 2º Se existir, mostra todos os clientes
+ * 
+ * @author Alexandre Marques
+ */
+Clientes* mostrarCLiente() {
+	FILE* ficheiro;
+	Clientes* cliente;
+	// abrir o ficheiro para leitura binária
+	ficheiro = fopen("clientes.bin", "rb");
+    if (ficheiro == NULL) {
+		printf("Erro ao abrir o ficheiro.\n");
+		return;
+	}
+	// ler todos os clientes do ficheiro
+    while ((cliente = lerClientes(ficheiro)) != NULL) {
+		printf("NIF: %s\n", cliente->nif);
+		printf("Nome: %s\n", cliente->nome);
+		printf("Saldo: %.2f\n", cliente->saldo);
+		printf("Morada: %s\n", cliente->morada);
+		printf("\n");
+		free(cliente);
+	}
+	fclose(ficheiro);
+	return cliente;
+}
+
+/**
+* \brief  Esta função serve para ler os clientes do ficheiro "clientes.bin"
+* 
+ *1º Verifica se o ficheiro existe
+ * 2º Se existir, lê os clientes
+ * 
+ * \param ficheiro
+ * @author Alexandre Marques
+ */
 Clientes* lerClientes(FILE* ficheiro) {
     Clientes* cliente = malloc(sizeof(Clientes));
     if (fread(cliente, sizeof(Clientes), 1, ficheiro) == 0) {
@@ -105,26 +144,3 @@ Clientes* listarClientes() {
 
     return cliente;
 }
-
-
-/*abrir o ficheiro para leitura binária
-    ficheiro = fopen("clientes.bin", "rb");
-    if (ficheiro == NULL) {
-        printf("Erro ao abrir o ficheiro.\n");
-        return 1;
-    }
-
-    // ler os clientes do ficheiro
-    cliente1 = lerClientes(ficheiro);
-
-    // imprimir os clientes lidos
-    printf("Cliente 1: %s, %.2f\n", cliente1->nome, cliente1->saldo);
-
-    fclose(ficheiro); // fechar o ficheiro
-
-    return 0;
-}
-*/
-
-
-
