@@ -34,6 +34,7 @@ typedef struct Clientes {
  * \param ficheiro
  * @author Alexandre Marques
  */
+
 Clientes* lerClientes(FILE* ficheiro);
 
 /**
@@ -46,6 +47,7 @@ Clientes* lerClientes(FILE* ficheiro);
  * \param ficheiro
  * @author Alexandre Marques
  */
+
 bool escreverCliente(Clientes* cliente, FILE* ficheiro); 
 
 /**
@@ -77,6 +79,7 @@ int adicionarCliente();
  *
  * @author Alexandre Marques
  */
+
 Clientes* mostrarCLiente();
 
 #endif // !Clientesh

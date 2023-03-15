@@ -13,7 +13,6 @@
 #define _CTR_SECURE_NO_WARNINGS
 #include <stdbool.h>
 
-
 /**
 * \brief  Esta função serve para mostrar todos os clientes que estão guardados no ficheiro "clientes.bin"
  *

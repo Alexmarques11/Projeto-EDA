@@ -14,11 +14,15 @@ void main() {
 	/*printf("Introduza a opção para o que pretende fazer:\n");
 	printf("----------------------------------------------");
 	printf("Clientes\n");
-	printf("Adicionar clientes\n");
-	printf("Mostrar clientes\n");*/
+	printf("1 - Adicionar clientes\n");
+	printf("2 - Mostrar clientes\n");*/
 
 
 	//adicionarCliente();
-	mostrarCLiente();
+	//mostrarCLiente();
+	//adicionarGestor();
+	//mostrarGestores();
+	adicionarMeio();
+	mostrarMeios();
 
 }
