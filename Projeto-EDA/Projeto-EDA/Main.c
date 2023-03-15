@@ -19,10 +19,12 @@ void main() {
 
 
 	//adicionarCliente();
-	//mostrarCLiente();
+	//system("cls");
+	mostrarCLiente();
+	//encontrarCliente();
 	//adicionarGestor();
 	//mostrarGestores();
-	adicionarMeio();
-	mostrarMeios();
+	//adicionarMeio();
+	//mostrarMeios();
 
 }

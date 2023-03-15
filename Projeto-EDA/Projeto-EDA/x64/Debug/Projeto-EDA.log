@@ -1,12 +1,11 @@
-﻿  FMobilidade.c
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FMobilidade.c(32,3): warning C4033: 'mostrarMeios' must return a value
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FMobilidade.c(39,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'char *'
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FMobilidade.c(39,10): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'char *'
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FMobilidade.c(120,3): warning C4033: 'adicionarMeio' must return a value
+﻿  FClientes.c
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(31,9): warning C4033: 'mostrarCLiente' must return a value
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(141,9): warning C4033: 'encontrarCliente' must return a value
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(149,13): warning C4013: 'strcmp' undefined; assuming extern returning int
   Main.c
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\Mobilidade.h(16,1): warning C4005: 'n': macro redefinition
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\Gestores.h(17,1): message : see previous definition of 'n'
   Generating Code...
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FMobilidade.c(47): warning C4715: 'mostrarMeios': not all control paths return a value
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FMobilidade.c(134): warning C4715: 'adicionarMeio': not all control paths return a value
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(44): warning C4715: 'mostrarCLiente': not all control paths return a value
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(207): warning C4715: 'encontrarCliente': not all control paths return a value
   Projeto-EDA.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\x64\Debug\Projeto-EDA.exe

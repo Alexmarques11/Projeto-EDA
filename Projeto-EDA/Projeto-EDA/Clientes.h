@@ -48,7 +48,7 @@ Clientes* lerClientes(FILE* ficheiro);
  * @author Alexandre Marques
  */
 
-bool escreverCliente(Clientes* cliente, FILE* ficheiro); 
+bool escreverCliente(Clientes* cliente, FILE* ficheiro);
 
 /**
 * \brief  Esta função serve para criar um cliente
@@ -65,7 +65,7 @@ Clientes* criarCliente();
  *2º Criar um cliente
  *3º Guardar o cliente
  *4º Fechar o ficheiro
- * 
+ *
  * @author Alexandre Marques
  */
 
@@ -82,5 +82,14 @@ int adicionarCliente();
 
 Clientes* mostrarCLiente();
 
+/**
+* \brief  Esta função serve para encontrar um cliente através do nif
+ *
+ * \param $PARAMS
+ * @author Alexandre Marques
+ */
+
+Clientes* encontrarCliente();
 #endif // !Clientesh
+
 
