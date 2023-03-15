@@ -18,7 +18,7 @@ void main() {
 	printf("Mostrar clientes\n");*/
 
 
-	adicionarCliente();
+	//adicionarCliente();
 	mostrarCLiente();
 
 }

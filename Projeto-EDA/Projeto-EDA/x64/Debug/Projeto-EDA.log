@@ -1,5 +1,4 @@
-﻿  Main.c
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\Gestores.h(24,2): warning C4091: 'typedef ': ignored on left of 'Gestores' when no variable is declared
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\Mobilidade.h(16,1): warning C4005: 'n': macro redefinition
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\Gestores.h(17,1): message : see previous definition of 'n'
+﻿  FClientes.c
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(32,3): warning C4033: 'mostrarCLiente' must return a value
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\Projeto-EDA\FClientes.c(45): warning C4715: 'mostrarCLiente': not all control paths return a value
   Projeto-EDA.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA\x64\Debug\Projeto-EDA.exe

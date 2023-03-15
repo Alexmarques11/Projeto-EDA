@@ -13,6 +13,7 @@
 #define _CTR_SECURE_NO_WARNINGS
 #include <stdbool.h>
 
+
 /**
 * \brief  Esta função serve para mostrar todos os clientes que estão guardados no ficheiro "clientes.bin"
  *
@@ -61,14 +62,26 @@ Clientes* lerClientes(FILE* ficheiro) {
     return cliente;
 }
 
+/**
+* \brief  Esta função serve para escrever os clientes no ficheiro "clientes.bin"
+ *
+ * 1º Verifica se o ficheiro existe
+ * 2º Se existir, escreve os clientes
+ * 
+ * \param cliente
+ * \param ficheiro
+ * @author Alexandre Marques
+ */
 bool escreverCliente(Clientes* cliente, FILE* ficheiro) {
     fwrite(cliente, sizeof(Clientes), 1, ficheiro);
     return true;
 }
 
 /**
-* \brief  Pede os dados ao utilizador para criar um novo cliente
+* \brief  Esta função serve para criar um cliente
+* 1º Pede os  dados do cliente
  *
+ * @author Alexandre Marques
  */
 Clientes* criarCliente() {
     Clientes* cliente = malloc(sizeof(Clientes));
@@ -110,37 +123,8 @@ int adicionarCliente() {
     escreverCliente(cliente1, ficheiro);
 
     fclose(ficheiro);
-    printf("O cliente foi guardado com sucesso");
+    printf("O cliente foi guardado com sucesso\n");
 
     return 0;
 }
 
-/**
- * \brief  Ler todos os clientes do ficheiro "clientes.bin"
- *
- */
-Clientes* listarClientes() {
-    FILE* ficheiro;
-    Clientes* cliente;
-
-    // abrir o ficheiro para leitura binária
-    ficheiro = fopen("clientes.bin", "rb");
-    if (ficheiro == NULL) {
-        printf("Erro ao abrir o ficheiro.\n");
-        return;
-    }
-
-    // ler todos os clientes do ficheiro
-    while ((cliente = lerClientes(ficheiro)) != NULL) {
-        printf("NIF: %s\n", cliente->nif);
-        printf("Nome: %s\n", cliente->nome);
-        printf("Saldo: %.2f\n", cliente->saldo);
-        printf("Morada: %s\n", cliente->morada);
-        printf("\n");
-        free(cliente);
-    }
-
-    fclose(ficheiro);
-
-    return cliente;
-}
