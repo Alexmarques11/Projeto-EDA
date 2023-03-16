@@ -113,8 +113,7 @@ int adicionarCliente() {
     // abrir o ficheiro para escrita binária
     ficheiro = fopen("clientes.bin", "ab");
     if (ficheiro == NULL) {
-        printf("Erro ao abrir o ficheiro.\n");
-        return 1;
+        return 0;
     }
 
     cliente1 = criarCliente();
@@ -122,23 +121,21 @@ int adicionarCliente() {
     escreverCliente(cliente1, ficheiro);
 
     fclose(ficheiro);
-    printf("O cliente foi guardado com sucesso\n");
 
-    return 0;
+    return 1;
 }
 
 Clientes* encontrarCliente() {
     FILE* ficheiro;
     Clientes* cliente;
-    Clientes cliente1;
     char nif[10];
     int opcao;
 
-    // abrir o ficheiro para leitura binária
-    ficheiro = fopen("clientes.bin", "rb");
+    // abrir o ficheiro para leitura e escrita binária
+    ficheiro = fopen("clientes.bin", "rb+");
     if (ficheiro == NULL) {
         printf("Erro ao abrir o ficheiro.\n");
-        return;
+        return NULL;
     }
 
     // ler todos os clientes do ficheiro
@@ -164,28 +161,24 @@ Clientes* encontrarCliente() {
             scanf("%d", &opcao);
 
             switch (opcao) {
-                case 1:
-                    printf("Introduz o Nif do cliente: ");
-                    scanf("%s", cliente->nif);
-                    
-                    break;
-                case 2:
-                    printf("Introduz o nome do cliente: ");
-					scanf("%s", cliente->nome);
-
-					break;
-                case 3:
-					printf("Introduz o saldo do cliente: ");
-                    scanf("%f", &cliente->saldo);
-                    
-                    break;
-                case 4:
-                    printf("Introduz a morada do cliente: ");
-                    scanf("%s", cliente->morada);
-                    
-                    break;
-                    default:
-				    break;
+            case 1:
+                printf("Introduz o Nif do cliente: ");
+                scanf("%s", cliente->nif);
+                break;
+            case 2:
+                printf("Introduz o nome do cliente: ");
+                scanf("%s", cliente->nome);
+                break;
+            case 3:
+                printf("Introduz o saldo do cliente: ");
+                scanf("%f", &cliente->saldo);
+                break;
+            case 4:
+                printf("Introduz a morada do cliente: ");
+                scanf("%s", cliente->morada);
+                break;
+            default:
+                break;
             }
 
             printf("NIF: %s\n", cliente->nif);
@@ -194,14 +187,70 @@ Clientes* encontrarCliente() {
             printf("Morada: %s\n", cliente->morada);
             printf("\n");
 
-
+            // reposicionar o ponteiro no ficheiro para a posição correta
+            fseek(ficheiro, -(long)sizeof(Clientes), SEEK_CUR);
+            // escrever o cliente atualizado no ficheiro
+            escreverCliente(cliente, ficheiro);
 
             free(cliente);
             break;
         }
         free(cliente);
     }
+
     fclose(ficheiro);
-    return cliente;
+
+    return NULL;
+}
+
+
+void removerCliente(char* nif) {
+    FILE* ficheiro;
+    Clientes* cliente;
+    Clientes* anterior = NULL;
+
+    // Abrir o ficheiro para leitura e escrita binária
+    ficheiro = fopen("clientes.bin", "rb+");
+    if (ficheiro == NULL) {
+        printf("Erro ao abrir o ficheiro.\n");
+        return;
+    }
+
+    // Percorre a lista até encontrar o cliente com o NIF correspondente
+    while ((cliente = lerClientes(ficheiro)) != NULL) {
+        if (strcmp(cliente->nif, nif) == 0) {
+            // Remove o cliente da estrutura
+            if (anterior == NULL) {
+                fseek(ficheiro, 0, SEEK_SET); // Posiciona o ponteiro no início do ficheiro
+                fwrite(cliente->proximo, sizeof(Clientes), 1, ficheiro);
+            }
+            else {
+                fseek(ficheiro, -(long)(sizeof(Clientes) * 2), SEEK_CUR); // Volta para o início do cliente anterior
+                fwrite(cliente->proximo, sizeof(Clientes), 1, ficheiro);
+            }
+
+            free(cliente); // Libera o espaço de memória alocado para o cliente removido
+            printf("Cliente com NIF %s removido com sucesso.\n", nif);
+            fclose(ficheiro);
+            return;
+        }
+        anterior = cliente;
+    }
+
+    // Caso o cliente não seja encontrado
+    printf("Cliente com NIF %s nao encontrado.\n", nif);
+    fclose(ficheiro);
+}
+
+bool eliminarCliente() {
+    char nif[10];
+
+    printf("Introduza o nif do cliente que deseja eliminar: ");
+    scanf("%s", nif);
+    printf("\n");
+
+    removerCliente(nif);
+
+    return true;
 }
 
