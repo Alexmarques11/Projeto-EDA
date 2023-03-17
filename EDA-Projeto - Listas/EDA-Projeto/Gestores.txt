@@ -1,4 +1,4 @@
-1;André Cerqueira;acerq@gmailcom;123;
+1;Alexandre Marques;alexpm2905@gmail.com;123;
 2;João Silva;j.silva@email.com;P@ssword123;
 3;Mariana Gomes;mariana.gomes@email.com;Gestor2023;
 4;Ricardo Santos;ricardo.santos@email.com;Pass123!;

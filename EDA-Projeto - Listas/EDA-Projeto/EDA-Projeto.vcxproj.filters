@@ -18,7 +18,10 @@
     <ClInclude Include="Clientes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ecra.h">
+    <ClInclude Include="Gestores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MeiosMobilidade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,7 +32,10 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ecra.c">
+    <ClCompile Include="FGestores.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FMeiosMobilidade.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

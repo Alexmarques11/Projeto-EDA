@@ -1,9 +1,5 @@
-﻿  FClientes.c
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\FClientes.c(124,25): warning C4047: 'return': 'ClientesLista *' differs in levels of indirection from 'ClientesLista **'
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\FClientes.c(144,13): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\FClientes.c(197,34): warning C4047: 'function': 'ClientesLista **' differs in levels of indirection from 'ClientesLista ***'
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\FClientes.c(197,20): warning C4024: 'removerCliente': different types for formal and actual parameter 1
-  main.c
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\main.c(19,2): warning C4013: 'mostrarClientes' undefined; assuming extern returning int
-  Generating Code...
+﻿  main.c
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\main.c(32,34): warning C4047: 'function': 'GestoresLista **' differs in levels of indirection from 'GestoresLista *'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\main.c(32,21): warning C4024: 'GestorRemovidoEcra': different types for formal and actual parameter 1
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\EDA-Projeto\main.c(34,2): warning C4013: 'mostrarGestores' undefined; assuming extern returning int
   EDA-Projeto.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto - Listas\x64\Debug\EDA-Projeto.exe

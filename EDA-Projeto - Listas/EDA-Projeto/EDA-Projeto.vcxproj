@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Clientes.h" />
-    <ClInclude Include="Ecra.h" />
+    <ClInclude Include="Gestores.h" />
+    <ClInclude Include="MeiosMobilidade.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ecra.c" />
     <ClCompile Include="FClientes.c" />
+    <ClCompile Include="FGestores.c" />
+    <ClCompile Include="FMeiosMobilidade.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
