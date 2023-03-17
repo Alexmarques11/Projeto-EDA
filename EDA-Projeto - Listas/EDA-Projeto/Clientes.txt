@@ -1,0 +1,10 @@
+Diego Rodrigues;112233445;Leiria;3200,000000;
+Inês Ferreira;112358132;Aveiro;2000,000000;
+Miguel Costa;141421356;Viana do Castelo;150,000000;
+Sara Santos;161803399;Bragança;0,000000;
+Ricardo Almeida;271828182;Portimão;1200,000000;
+Isabel Sousa;314159265;Funchal;750,000000;
+Pedro Alves;135792468;Coimbra;0,000000;
+Ana Oliveira;246810121;Braga;500,000000;
+João Santos;987654321;Porto;2500,000000;
+Maria Silva;123456789;Lisboa;1000,000000;

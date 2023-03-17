@@ -1,0 +1,5 @@
+﻿  main.c
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto\EDA-Projeto\main.c(16,35): warning C4047: 'function': 'ClientesLista **' differs in levels of indirection from 'ClientesLista *'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto\EDA-Projeto\main.c(16,22): warning C4024: 'clienteRemovidoEcra': different types for formal and actual parameter 1
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto\EDA-Projeto\main.c(18,2): warning C4013: 'mostrarClientes' undefined; assuming extern returning int
+  EDA-Projeto.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\EDA-Projeto\x64\Debug\EDA-Projeto.exe
