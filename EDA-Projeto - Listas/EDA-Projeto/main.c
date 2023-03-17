@@ -10,10 +10,18 @@
 
 
 int main() {
+
+#pragma region Clientes
 	ClientesLista* listaClientes = NULL;
+	//lerClientestxt(&listaClientes);
 	lerClientesbin(&listaClientes);
 	//adicionarNovoCliente(&listaClientes);
-	clienteRemovidoEcra(listaClientes);
+	//clienteRemovidoEcra(listaClientes);
 	system("cls");
 	mostrarClientes(listaClientes);
+
+#pragma endregion
+
+
+
 }

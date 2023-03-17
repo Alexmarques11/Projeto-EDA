@@ -8,6 +8,14 @@
 
 #include "Clientes.h"
 
+/**
+* \brief  Função para ler os dados dos clientes do ficheiro txt
+* 1º  Lê os dados de cada cliente e envia para a função adicionarClietneLista que insere na lista encadeada
+ *2º Guarda a lista atualizada no ficheiro binário chamando a função guardarClientesbin
+ * \param listaClientes
+ * @author Alexandre Marques
+ */
+
 int lerClientestxt(ClientesLista** listaClientes) {
     FILE* ficheiro = fopen("Clientes.txt", "r");
     if (ficheiro == NULL) {
@@ -27,16 +35,31 @@ int lerClientestxt(ClientesLista** listaClientes) {
     return 1;
 }
 
-// Insere Clientes no incio de uma lista encadeada   
+/**
+* \brief  Insere Clientes no incio de uma lista encadeada   
+ *1º Cria um novo nó com os dados do cliente
+ * 2º Insere o novo nó no inicio da lista
+ * 3º Guarda a lista atualizada no ficheiro binário chamando a função guardarClientesbin
+ * \param recebe uma lista e um cliente para o inserir na lista
+ * @author Alexandre Marques
+ */
 ClientesLista* adicionarClienteLista(ClientesLista* lista, Clientes c) {
-    ClientesLista* novoNo = (ClientesLista*)malloc(sizeof(ClientesLista));
-    novoNo->c = c;
-    novoNo->next = lista;
-    guardarClientesbin(novoNo);
-    return novoNo;
+    ClientesLista* novo = (ClientesLista*)malloc(sizeof(ClientesLista));
+    novo->c = c;
+    novo->next = lista;
+    guardarClientesbin(novo);
+    return novo;
 }
 
-// Guardar lista em binário
+/**
+* \brief  Esta função guarda a lista de clientes no ficheiro binário
+* 1º Abre o ficheiro binário para escrita
+* 2º Percorre a lista encadeada e guarda os dados de cada cliente no ficheiro
+* 3º Fecha o ficheiro
+ * \param lista
+ * @author Alexandre Marques
+ */
+
 bool guardarClientesbin(ClientesLista* lista) {
     FILE* ficheiro = fopen("Clientes.bin", "wb");
     if (ficheiro == NULL) {
@@ -52,6 +75,17 @@ bool guardarClientesbin(ClientesLista* lista) {
     return true;
 }
 
+
+/**
+* \brief  Esta função adiciona um novo cliente à lista de clientes
+* 1º Cria um novo cliente com os dados inseridos pelo usuário
+* 2º Adiciona o novo cliente à lista chamando a função adicionarClienteLista
+* 3º Guarda a lista atualizada no ficheiro binário chamando a função guardarClientesbin
+ *
+ * \param listaClientes
+ * @author Alexandre Marques
+ */
+
 bool adicionarNovoCliente(ClientesLista** listaClientes) {
     // Cria um novo cliente com os dados inseridos pelo usuário
     Clientes novoCliente;
@@ -66,7 +100,16 @@ bool adicionarNovoCliente(ClientesLista** listaClientes) {
     return true;
 }
 
-//ler dados clientes do ficheiro binario
+/**
+* \brief  Esta função lê os dados dos clientes do ficheiro binário
+* 1º Abre o ficheiro binário para leitura
+* 2º Lê os dados de cada cliente e insere na lista encadeada chamando a função adicionarClienteLista
+* 3º Fecha o ficheiro
+ *
+ * \param listaClientes
+ * @author Alexandre Marques
+ */
+
 ClientesLista* lerClientesbin(ClientesLista** listaClientes) {
 	FILE* ficheiro = fopen("Clientes.bin", "rb");
     if (ficheiro == NULL) {
@@ -80,6 +123,49 @@ ClientesLista* lerClientesbin(ClientesLista** listaClientes) {
 			fclose(ficheiro);
 		 	return listaClientes;
 }
+
+/**
+* \brief  Esta função remove um cliente da lista de clientes
+* 1º Procura pelo cliente com o NIF correspondente na lista encadeada
+* 2º Remove o cliente da lista encadeada
+* 3º Atualiza o arquivo binário com a lista atualizada chamando a função guardarClientesbin
+ *
+ * \param listaClientes
+ * \param nif
+ * @author Alexandre Marques
+ */
+
+bool removerCliente(ClientesLista** listaClientes, char nif[]) {
+    ClientesLista* clienteAtual = *listaClientes;
+    ClientesLista* clienteAnterior = NULL;
+    bool encontrado = false;
+    // Procura pelo cliente com o NIF correspondente na lista encadeada
+    while (clienteAtual != NULL) {
+        if (strcmp(clienteAtual->c.nif, nif) == 0) {
+            encontrado = true;
+            break;
+        }
+        clienteAnterior = clienteAtual;
+        clienteAtual = clienteAtual->next;
+    }
+    if (!encontrado) {
+
+        return false;
+    }
+    // Remove o cliente da lista encadeada
+    if (clienteAnterior == NULL) {
+        *listaClientes = clienteAtual->next;
+    }
+    else {
+        clienteAnterior->next = clienteAtual->next;
+    }
+    // Atualiza o arquivo binário com a lista atualizada
+    guardarClientesbin(*listaClientes);
+
+    return true;
+}
+
+
 
 
 Clientes* obterDadosClienteEcra(Clientes* c) {
@@ -112,35 +198,4 @@ void clienteRemovidoEcra(ClientesLista** listaClientes) {
     scanf("%s", nif);
     removerCliente(&listaClientes, nif);
 
-}
-
-
-bool removerCliente(ClientesLista** listaClientes, char nif[]) {
-    ClientesLista* clienteAtual = *listaClientes;
-    ClientesLista* clienteAnterior = NULL;
-    bool encontrado = false;
-    // Procura pelo cliente com o NIF correspondente na lista encadeada
-    while (clienteAtual != NULL) {
-        if (strcmp(clienteAtual->c.nif, nif) == 0) {
-            encontrado = true;
-            break;
-        }
-        clienteAnterior = clienteAtual;
-        clienteAtual = clienteAtual->next;
-    }
-    if (!encontrado) {
-        printf("Cliente nao encontrado.\n");
-        return false;
-    }
-    // Remove o cliente da lista encadeada
-    if (clienteAnterior == NULL) {
-        *listaClientes = clienteAtual->next;
-        }
-    else {
-        clienteAnterior->next = clienteAtual->next;
-    }
-     // Atualiza o arquivo binário com a lista atualizada
-    guardarClientesbin(*listaClientes);
-    printf("Cliente removido com sucesso.\n");
-    return true;
 }
