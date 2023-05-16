@@ -44,11 +44,29 @@ int lerGestorestxt(GestoresLista** listaGestores) {
 */
 
 GestoresLista* adicionarGestorLista(GestoresLista* lista, Gestores g) {
-	GestoresLista* novo = (GestoresLista*)malloc(sizeof(GestoresLista));
-	novo->g = g;
-	novo->next = lista;
-	guardarGestoresbin(novo);
-	return novo;
+    GestoresLista* novo = (GestoresLista*)malloc(sizeof(GestoresLista));
+    if (novo == NULL) return NULL;
+    novo->g = g;
+    novo->next = NULL;
+
+    // Verifica se a lista está vazia ou se o novo gestor tem o menor ID
+    if (lista == NULL || g.id < lista->g.id) {
+        novo->next = lista;
+        return novo;
+    }
+
+    // Encontra a posição correta para inserir o novo gestor na lista ordenada
+    GestoresLista* anterior = lista;
+    GestoresLista* atual = lista->next;
+    while (atual != NULL && atual->g.id < g.id) {
+        anterior = atual;
+        atual = atual->next;
+    }
+
+    novo->next = atual;
+    anterior->next = novo;
+
+    return lista;
 }
 
 /**
@@ -151,7 +169,7 @@ bool RemoverGestor(GestoresLista** listaGestor, int id) {
         else {
             gestorAnterior->next = gestorAtual->next;
         }
-        free(gestorAtual);
+		free(gestorAtual);
         guardarGestoresbin(*listaGestor);
         return true;
     }
@@ -163,7 +181,7 @@ bool RemoverGestor(GestoresLista** listaGestor, int id) {
 
 
 
-void gestorRemovidoEcra(GestoresLista** listaGestor) {
+bool gestorRemovidoEcra(GestoresLista** listaGestor) {
     int id;
     printf("ID do gestor a remover: ");
     scanf("%d", &id);

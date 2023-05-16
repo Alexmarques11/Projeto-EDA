@@ -19,9 +19,9 @@
 #define A 10
 
 typedef struct Clientes {
-    char nome[20];
-    char nif[10];
-    char morada[50];
+    char nome[N];
+    char nif[A];
+    char morada[N];
     float saldo;
 }Clientes;
 

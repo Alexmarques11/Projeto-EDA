@@ -115,6 +115,3 @@ bool MeioRemovidoEcra(MeiosLista** listaMeios);
 
 
 #endif // !MeiosMobilidadeh
-
-
-

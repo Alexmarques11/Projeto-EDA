@@ -286,7 +286,7 @@ bool MeioRemovidoEcra(MeiosLista** listaMeios) {
 	int id;
 	printf("Introduza o ID do meio que pretende remover: ");
 	scanf("%d", &id);
-	if (RemoverGestor(listaMeios, id)) {
+	if (RemoverMeio(listaMeios, id)) {
 		return true;
 	}
 	else {

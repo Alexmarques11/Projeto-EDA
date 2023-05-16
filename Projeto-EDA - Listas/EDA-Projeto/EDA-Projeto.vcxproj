@@ -127,14 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Aluguer.h" />
     <ClInclude Include="Clientes.h" />
     <ClInclude Include="Gestores.h" />
+    <ClInclude Include="Grafos.h" />
     <ClInclude Include="MeiosMobilidade.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FAluguer.c" />
     <ClCompile Include="FClientes.c" />
     <ClCompile Include="FGestores.c" />
     <ClCompile Include="FMeiosMobilidade.c" />
+    <ClCompile Include="Grafos.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

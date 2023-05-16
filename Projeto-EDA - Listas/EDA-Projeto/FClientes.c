@@ -28,7 +28,6 @@ int lerClientestxt(ClientesLista** listaClientes) {
         Clientes novoCliente;
         sscanf(linha, "%[^;];%[^;];%[^;];%f", novoCliente.nome, novoCliente.nif, novoCliente.morada, &novoCliente.saldo);
         *listaClientes = adicionarClienteLista(*listaClientes, novoCliente);
-        guardarClientesbin(*listaClientes);
     }
 
     fclose(ficheiro);
@@ -43,12 +42,31 @@ int lerClientestxt(ClientesLista** listaClientes) {
  * \param recebe uma lista e um cliente para o inserir na lista
  * @author Alexandre Marques
  */
+
 ClientesLista* adicionarClienteLista(ClientesLista* lista, Clientes c) {
     ClientesLista* novo = (ClientesLista*)malloc(sizeof(ClientesLista));
+    if (novo == NULL) return NULL;
     novo->c = c;
-    novo->next = lista;
-    guardarClientesbin(novo);
-    return novo;
+    novo->next = NULL;
+
+    // Verifica se a lista está vazia ou se o novo cliente tem o menor NIF
+    if (lista == NULL || strcmp(c.nif, lista->c.nif) < 0) {
+        novo->next = lista;
+        return novo;
+    }
+
+    // Encontra a posição correta para inserir o novo cliente na lista ordenada
+    ClientesLista* anterior = lista;
+    ClientesLista* atual = lista->next;
+    while (atual != NULL && strcmp(c.nif, atual->c.nif) >= 0) {
+        anterior = atual;
+        atual = atual->next;
+    }
+
+    novo->next = atual;
+    anterior->next = novo;
+
+    return lista;
 }
 
 /**
@@ -61,7 +79,7 @@ ClientesLista* adicionarClienteLista(ClientesLista* lista, Clientes c) {
  */
 
 bool guardarClientesbin(ClientesLista* lista) {
-    FILE* ficheiro = fopen("Clientes.bin", "wb");
+    FILE* ficheiro = fopen("Clientes.bin", "ab");
     if (ficheiro == NULL) {
         return false;
     }
@@ -110,7 +128,7 @@ bool adicionarNovoCliente(ClientesLista** listaClientes) {
  * @author Alexandre Marques
  */
 
-ClientesLista* lerClientesbin(ClientesLista** listaClientes) {
+ClientesLista* lerClientesbin(ClientesLista** listaClientes, char* fileName) {
 	FILE* ficheiro = fopen("Clientes.bin", "rb");
     if (ficheiro == NULL) {
 		return 0;
@@ -160,13 +178,26 @@ bool removerCliente(ClientesLista** listaClientes, char nif[]) {
         clienteAnterior->next = clienteAtual->next;
     }
     // Atualiza o arquivo binário com a lista atualizada
+    free(clienteAtual);
     guardarClientesbin(*listaClientes);
 
     return true;
 }
 
+Clientes* obterClientePorNIF(ClientesLista* lista, char* nif) {
+    ClientesLista* atual = lista;
 
+    while (atual != NULL && strcmp(atual->c.nif, nif) <= 0) {
+        if (strcmp(atual->c.nif, nif) == 0) {
+            return &(atual->c);
+        }
+        atual = atual->next;
+    }
 
+    return NULL;
+}
+
+#pragma region Ecra
 
 Clientes* obterDadosClienteEcra(Clientes* c) {
     printf("Nome: ");
@@ -199,3 +230,5 @@ void clienteRemovidoEcra(ClientesLista** listaClientes) {
     removerCliente(&listaClientes, nif);
 
 }
+
+#pragma endregion
