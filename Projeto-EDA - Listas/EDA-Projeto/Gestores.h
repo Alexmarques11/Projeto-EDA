@@ -95,10 +95,35 @@ bool RemoverGestor(GestoresLista** listaGestor, int id);
 
 bool adicionarNovoGestor(GestoresLista** listaGestor);
 
-bool GestorRemovidoEcra(GestoresLista** listaGestor);
+
+/*
+* \brief  Esta função remove um cliente da lista de clientes
+* 1º Procura pelo cliente com o NIF correspondente na lista encadeada
+* 2º Remove o cliente da lista encadeada
+* 3º Atualiza o arquivo binário com a lista atualizada chamando a função guardarClientesbin
+ *
+ * \param listaClientes
+ * \param nif
+ * @author Alexandre Marques
+ */
+
+
+bool RemoverGestor(GestoresLista** listaGestor, int id);
+
+/**
+ * Esta função destroi a lista de gestores
+ * 1º Percorre a lista encadeada e destroi cada nó
+ * 2º Liberta a memória alocada para a lista
+ *
+ * \param lista
+ */
+
+
+void DestruirListaG(GestoresLista* lista);
+
+
 
 Gestores* obterDadosGestorEcra(Gestores* c);
-
 
 
 #endif // !Gestorsh

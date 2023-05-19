@@ -206,6 +206,26 @@ bool RemoverMeio(MeiosLista** listaMeios, int id) {
 
 }
 
+/**
+ * Esta função destroi a lista de meios de mobilidade
+ * 1º Percorre a lista encadeada e destroi cada nó
+ * 2º Atribui NULL à lista
+ * 
+ * \param lista
+ */
+
+void DestruirListaM(MeiosLista* lista) {
+	MeiosLista* atual = lista;
+	while (atual != NULL) {
+		MeiosLista* proximo = atual->next;
+		free(atual);
+		atual = proximo;
+	}
+}
+
+
+#pragma region Ecra
+
 void mostrarMeios(MeiosLista* lista) {
 	printf("Lista de meios de mobilidade:\n\n");
 	while (lista != NULL) {
@@ -294,5 +314,7 @@ bool MeioRemovidoEcra(MeiosLista** listaMeios) {
 	}
 }
 
+
+#pragma endregion
 
 

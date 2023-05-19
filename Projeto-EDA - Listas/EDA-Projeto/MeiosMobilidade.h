@@ -107,6 +107,17 @@ bool adicionarNovoMeio(MeiosLista** listaMeios);
 bool RemoverMeio(MeiosLista** listaMeio, int id);
 
 
+/**
+ * Esta função destroi a lista de meios de mobilidade
+ * 1º Percorre a lista encadeada e destroi cada nó
+ * 2º Atribui NULL à lista
+ *
+ * \param lista
+ */
+
+void DestruirListaM(MeiosLista* lista);
+
+
 void mostrarMeios(MeiosLista* lista);
 
 Meios* obterDadosMeiosEcra(Meios* m);

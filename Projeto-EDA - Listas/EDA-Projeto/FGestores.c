@@ -178,8 +178,27 @@ bool RemoverGestor(GestoresLista** listaGestor, int id) {
     }
 }
 
+/**
+ * Esta função destroi a lista de gestores
+ * 1º Percorre a lista encadeada e destroi cada nó
+ * 2º Liberta a memória alocada para a lista
+ * 
+ * \param lista
+ */
 
 
+void DestruirListaG(GestoresLista* lista) {
+    GestoresLista* atual = lista;
+    while (atual != NULL) {
+        GestoresLista* proximo = atual->next;
+        free(atual);
+        atual = proximo;
+    }
+}
+
+
+
+#pragma region Ecra
 
 bool gestorRemovidoEcra(GestoresLista** listaGestor) {
     int id;
@@ -219,7 +238,7 @@ void mostrarGestores(GestoresLista* lista) {
 }
 
 
-
+#pragma endregion
 
 
 

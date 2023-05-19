@@ -1,5 +1,0 @@
-0 Braga
-1 Amares
-2 VilaVerde
-0 1 10.5
-1 2 15.2

@@ -1,8 +1,10 @@
 ﻿  main.c
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Grafos.h(19,1): warning C4005: 'N': macro redefinition
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Clientes.h(18,1): message : see previous definition of 'N'
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\main.c(78,2): warning C4013: 'AdicionaAdjacente' undefined; assuming extern returning int
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\main.c(86,2): warning C4013: 'GuardarGrafoBinario' undefined; assuming extern returning int
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Aluguer.h(16,1): warning C4005: 'A': macro redefinition
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Clientes.h(19,1): message : see previous definition of 'A'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Aluguer.h(17,1): warning C4005: 'N': macro redefinition
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Grafos.h(19,1): message : see previous definition of 'N'
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\main.c(19,7): warning C4101: 'aux': unreferenced local variable
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\main.c(20,6): warning C4101: 'x': unreferenced local variable
   EDA-Projeto.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\x64\Debug\EDA-Projeto.exe

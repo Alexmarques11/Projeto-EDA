@@ -197,6 +197,23 @@ Clientes* obterClientePorNIF(ClientesLista* lista, char* nif) {
     return NULL;
 }
 
+/**
+ * Esta função destroi a lista de clientes
+ * 1º Percorre a lista encadeada e destroi cada nó
+ * 2º Liberta a memória alocada para a lista
+ * 
+ * \param lista
+ */
+void DestruirListaC(ClientesLista* lista) {
+    ClientesLista* atual = lista;
+    while (atual != NULL) {
+        ClientesLista* proximo = atual->next;
+        free(atual);
+        atual = proximo;
+    }
+}
+
+
 #pragma region Ecra
 
 Clientes* obterDadosClienteEcra(Clientes* c) {

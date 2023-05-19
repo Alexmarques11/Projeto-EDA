@@ -99,7 +99,17 @@ bool adicionarNovoCliente(ClientesLista** listaClientes);
  */
 
 
-ClientesLista* lerClientesbin(ClientesLista** listaClientes);
+ClientesLista* lerClientesbin(ClientesLista** listaClientes, char* filename);
+
+/**
+ * Esta função destroi a lista de clientes
+ * 1º Percorre a lista encadeada e destroi cada nó
+ * 2º Liberta a memória alocada para a lista
+ *
+ * \param lista
+ */
+
+void DestruirListaC(ClientesLista* lista);
 
 
 void clienteRemovidoEcra(ClientesLista** listaClientes);

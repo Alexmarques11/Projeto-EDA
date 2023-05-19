@@ -11,25 +11,22 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "Clientes.h"
-#include "MeiosMobilidade.h"
 #define _CTR_SECURE_NO_WARNINGS
+
+#define A 11
+#define N 10
 
 
 #ifndef Aluguerh
 #define Aluguerh
 
-typedef struct DadosAluguer {
+typedef struct Aluguer {
 	int id;
-	char data[11];
+	char nif[N];
+	int idMeio;
+	char data[A];
 	int duracao;
 	float preco;
-}DadosAluguer;
-
-typedef struct Aluguer {
-	Clientes cliente;
-	Meios meio;
-	DadosAluguer dados;
 }Aluguer;
 
 typedef struct AluguerLista {
@@ -37,7 +34,21 @@ typedef struct AluguerLista {
 	struct AluguerLista* next;
 }AluguerLista;
 
-Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d);
+
+/**
+ * .
+ * 
+ * \param $PARAMS
+ * \return $RETURN
+ */
+//Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d);
+
+/**
+ * .
+ * 
+ * \param $PARAMS
+ * \return $RETURN
+ */
 
 AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer a);
 

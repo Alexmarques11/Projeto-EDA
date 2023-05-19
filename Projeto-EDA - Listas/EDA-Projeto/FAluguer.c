@@ -20,7 +20,7 @@
 
 
 
-Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d) {
+/*Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d) {
 	Aluguer a;
 	a.cliente = c;
 	a.meio = m;
@@ -28,7 +28,7 @@ Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d) {
 	adicionarAluguerLista(lista, a);
 
 	return lista;
-}
+}*/
 
 /**
  * .Esta função adiciona um aluguer à lista encadeada
@@ -38,7 +38,7 @@ Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d) {
  * \return 
  */
 
-AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer novoAluguer) {
+/*AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer novoAluguer) {
 	AluguerLista* novoNo = (AluguerLista*)malloc(sizeof(AluguerLista));
 	novoNo->a = novoAluguer;
 	novoNo->next = NULL;
@@ -60,7 +60,7 @@ AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer novoAluguer) {
 		return lista;
 	}
 }
-
+*/
 
 /**
  * .Esta função lê os dados do aluguer do ficheiro binário

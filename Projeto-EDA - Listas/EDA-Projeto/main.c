@@ -27,6 +27,7 @@ int main() {
 	//aux=guardarClientesbin(listaClientes);
 	//mostrarClientes(listaClientes);
 
+	//DestruirListaC(listaClientes);
 #pragma endregion
 
 #pragma region Gestores
@@ -49,13 +50,17 @@ int main() {
 	//system("cls");
 	//mostrarMeios(listaMeios);
 
-#pragma region Grafos
+	//
 
+#pragma region Grafos
+	
 	static int total = 0;					//total de vertices
 	bool res;
 
 	Vertice* grafo = CriaGrafo();
 	
+	
+	/*
 	
 	Vertice* novoVertice = CriaVertice("Braga", total);
 	if (novoVertice != NULL) {
@@ -78,18 +83,26 @@ int main() {
 	AdicionaAdjacente(grafo, 0, 1, 10);
 	AdicionaAdjacente(grafo, 0, 2, 20);
 	AdicionaAdjacente(grafo, 1, 2, 15);
-
-
 	
+	*/
+
+	//MostraGrafo(grafo);
+	
+	//GuardarGrafoBin(grafo, "Vertices.bin");
+
+	//system("cls");
+
+	//grafo = DestruirGrafo(grafo);
+
+	//MostraGrafo(grafo);
+
+	grafo = LerGrafoBin(grafo, "Vertices.bin", &res);
+
+	grafo = LerAdjBin(grafo, &res);
+
 	MostraGrafo(grafo);
 
-	GuardarGrafoBinario(grafo, "Grafos.bin");
 	
-
-	//grafo = LerGrafoBinario(&grafo, "Grafos.bin");
-
-	//LerFicheiroTexto(&grafo, "Grafos.txt");
-
-
 #pragma endregion
+
 }
