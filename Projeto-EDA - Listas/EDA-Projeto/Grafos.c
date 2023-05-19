@@ -184,35 +184,6 @@ Vertice* AdicionaAdjacente(Vertice* g, int idOrigem, int idDestino, int dist) {
 
 
 /**
- * 
- * 
- * \param verticeInicial
- * \param nomeArquivo
- * \return 
- */
-
-Vertice* GuardarGrafoBinario(Vertice* verticeInicial, char* nomeArquivo) {
-	FILE* arquivo = fopen(nomeArquivo, "wb");
-	if (arquivo == NULL) {
-		return verticeInicial;
-	}
-
-	// percorrer todos os vértices e seus adjacentes, escrevendo-os no arquivo
-	Vertice* v = verticeInicial;
-	while (v != NULL) {
-		fwrite(v, sizeof(Vertice), 1, arquivo);
-		Adj* adj = v->adjacentes;
-		while (adj != NULL) {
-			fwrite(adj, sizeof(Adj), 1, arquivo);
-			adj = adj->next;
-		}
-		v = v->next;
-	}
-
-	fclose(arquivo);
-}
-
-/**
  * Esta função serve para guardar um grafo num ficheiro binário
  * 1º passo: verificar se o grafo está vazio
  * 2º passo: abrir o ficheiro
