@@ -179,6 +179,58 @@ bool RemoverGestor(GestoresLista** listaGestor, int id) {
 }
 
 /**
+ * \brief  Esta função procura um gestor na lista de gestores
+ * 1º Percorre a lista encadeada e procura pelo gestor com o ID correspondente
+ * 2º Retorna o gestor encontrado
+ * 3º Se não encontrar o gestor retorna NULL
+ *
+ * \param listaGestores
+ * \param id
+ * \return GestoresLista* ou NULL
+ * \author Alexandre Marques
+ */
+
+
+GestoresLista* procurarGestorPorId(GestoresLista* listaGestores, int id) {
+    GestoresLista* atual = listaGestores;
+
+    while (atual != NULL) {
+        if (atual->g.id == id) {
+            return atual;
+        }
+        else if (atual->g.id > id) {
+            // O ID atual é maior que o ID procurado,
+            // então não há necessidade de continuar a busca.
+            return NULL;
+        }
+        atual = atual->next;
+    }
+
+    // O gestor com o ID procurado não foi encontrado.
+    return NULL;
+}
+
+/**
+ * Esta função modifica um dado de um gestor
+ * 1º Procura pelo gestor com o ID correspondente na lista encadeada
+ * 2º Modifica o dado do gestor
+ * 
+ * \param listaGestores
+ * \param id
+ * \param campo
+ * \return 
+ */
+
+bool ModificaGestor(GestoresLista* listaGestores, int id, int campo) {
+    bool sucesso = false;
+
+    sucesso = ModificarDadoGestor(listaGestores, id, campo);
+
+    return sucesso;
+}
+
+
+/**
  * Esta função destroi a lista de gestores
  * 1º Percorre a lista encadeada e destroi cada nó
  * 2º Liberta a memória alocada para a lista
@@ -235,6 +287,33 @@ void mostrarGestores(GestoresLista* lista) {
 		printf("\n");
 		lista = lista->next;
 	}
+}
+
+bool ModificarDadoGestor(GestoresLista* listaGestores, int id, int campo) {
+    GestoresLista* gestor = procurarGestorPorId(listaGestores, id);
+
+    if (gestor == NULL) {
+        return false;
+    }
+
+    switch (campo) {
+    case 1:
+        printf("Novo Nome: ");
+        scanf("%s", gestor->g.nome);
+        break;
+    case 2:
+        printf("Novo Email: ");
+        scanf("%s", gestor->g.email);
+        break;
+    case 3:
+        printf("Nova Senha: ");
+        scanf("%s", gestor->g.password);
+        break;
+    default:
+        printf("Campo inválido.\n");
+        break;
+    }
+    return true;
 }
 
 

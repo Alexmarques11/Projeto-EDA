@@ -72,16 +72,6 @@ bool guardarGestoresbin(GestoresLista* lista);
 
 GestoresLista* lerGestoresbin(GestoresLista** listaGestores);
 
-/**
-* \brief  Esta função remove um cliente da lista de gestores
-* 1º Procura pelo gestor com o id correspondente na lista encadeada
-* 2º Remove o cliente da lista encadeada
-* 3º Atualiza o arquivo binário com a lista atualizada chamando a função guardarGestoresbin
- * \param $PARAMS
- * @author Alexandre Marques
- */
-
-bool RemoverGestor(GestoresLista** listaGestor, int id);
 
 /**
 * \brief  Esta função adiciona um novo gestor à lista de gestores
@@ -111,6 +101,34 @@ bool adicionarNovoGestor(GestoresLista** listaGestor);
 bool RemoverGestor(GestoresLista** listaGestor, int id);
 
 /**
+ * \brief  Esta função procura um gestor na lista de gestores
+ * 1º Percorre a lista encadeada e procura pelo gestor com o ID correspondente
+ * 2º Retorna o gestor encontrado
+ * 3º Se não encontrar o gestor retorna NULL
+ *
+ * \param listaGestores
+ * \param id
+ * \return GestoresLista* ou NULL
+ * \author Alexandre Marques
+ */
+
+
+GestoresLista* procurarGestorPorId(GestoresLista* listaGestores, int id);
+
+/**
+ * Esta função modifica um dado de um gestor
+ * 1º Procura pelo gestor com o ID correspondente na lista encadeada
+ * 2º Modifica o dado do gestor
+ *
+ * \param listaGestores
+ * \param id
+ * \param campo
+ * \return
+ */
+
+bool ModificaGestor(GestoresLista* listaGestores, int id, int campo);
+
+/**
  * Esta função destroi a lista de gestores
  * 1º Percorre a lista encadeada e destroi cada nó
  * 2º Liberta a memória alocada para a lista
@@ -121,9 +139,19 @@ bool RemoverGestor(GestoresLista** listaGestor, int id);
 
 void DestruirListaG(GestoresLista* lista);
 
+#pragma region Ecra
 
 
 Gestores* obterDadosGestorEcra(Gestores* c);
+
+void mostrarGestores(GestoresLista* lista);
+
+bool gestorRemovidoEcra(GestoresLista** listaGestor);
+
+bool ModificarDadoGestor(GestoresLista* listaGestores, int id, int campo);
+
+#pragma endregion
+
 
 
 #endif // !Gestorsh

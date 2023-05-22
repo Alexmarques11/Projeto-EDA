@@ -28,7 +28,6 @@ typedef struct MeiosMobilidade {
 	enum TipoMeio tipo;
 	char localizacao[20];
 	int bateria;
-	float custo;
 	int status;
 	int autonomia;
 }Meios;
@@ -106,6 +105,31 @@ bool adicionarNovoMeio(MeiosLista** listaMeios);
 
 bool RemoverMeio(MeiosLista** listaMeio, int id);
 
+/**
+ * Esta função procura um meio de mobilidade na lista de meios por id
+ * 1º Percorre a lista encadeada e compara o id do meio com o id inserido pelo usuário
+ * 2º Retorna o meio se for encontrado
+ *
+ * \param listaMeios
+ * \param id
+ * \return
+ */
+
+Meios* procurarMeioPorId(MeiosLista* listaMeios, int id);
+
+/**
+ * Esta função modifica um dado de um meio de mobilidade
+ * 1º Procura o meio de mobilidade na lista de meios por id
+ * 2º Modifica o dado do meio de mobilidade
+ *
+ * \param listaMeios
+ * \param id
+ * \param campo
+ * \return
+ */
+
+bool ModificarMeioMobilidade(MeiosLista* listaMeios, int id, int campo);
+
 
 /**
  * Esta função destroi a lista de meios de mobilidade
@@ -117,6 +141,19 @@ bool RemoverMeio(MeiosLista** listaMeio, int id);
 
 void DestruirListaM(MeiosLista* lista);
 
+/**
+ * Esta função calcula a autonomia de um meio de mobilidade
+ * 1º Calcula a autonomia de acordo com o tipo de meio de mobilidade
+ * 2º Retorna a autonomia
+ *
+ * \param meio
+ * \return
+ */
+
+int calcularAutonomia(Meios* meio);
+
+
+#pragma region Ecra
 
 void mostrarMeios(MeiosLista* lista);
 
@@ -124,5 +161,8 @@ Meios* obterDadosMeiosEcra(Meios* m);
 
 bool MeioRemovidoEcra(MeiosLista** listaMeios);
 
+bool ModificarDadoMeioMobilidade(MeiosLista* listaMeios, int id, int campo);
+
+#pragma endregion
 
 #endif // !MeiosMobilidadeh

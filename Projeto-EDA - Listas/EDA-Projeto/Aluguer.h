@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "Clientes.h"
 #define _CTR_SECURE_NO_WARNINGS
 
 #define A 11

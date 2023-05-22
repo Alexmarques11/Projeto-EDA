@@ -32,35 +32,32 @@ int lerMeiostxt(MeiosLista** listaMeiosMobilidade) {
 	while (fgets(linha, 200, ficheiro) != NULL) {
 		Meios novoMeio;
 		char tipoMeio[20];
-		sscanf(linha, "%d;%[^;];%[^;];%d;%f;%d", &novoMeio.id, tipoMeio, novoMeio.localizacao, &novoMeio.bateria, &novoMeio.custo, &novoMeio.status);
+		sscanf(linha, "%d;%[^;];%[^;];%d;%d", &novoMeio.id, tipoMeio, novoMeio.localizacao, &novoMeio.bateria, &novoMeio.status);
 
 		if (strcmp(tipoMeio, "Bicicleta") == 0) {
 			novoMeio.tipo = Bicicleta;
-			novoMeio.autonomia= ((novoMeio.bateria+20)*novoMeio.custo)/3;
 		}
 		else if (strcmp(tipoMeio, "Carro") == 0) {
 			novoMeio.tipo = Carro;
-			novoMeio.autonomia = ((novoMeio.bateria+20)*novoMeio.custo)/3;
 		}
 		else if (strcmp(tipoMeio, "Trotinete") == 0) {
 			novoMeio.tipo = Trotinete;
-			novoMeio.autonomia =((novoMeio.bateria+20)*novoMeio.custo)/3;
 		}
 		else if (strcmp(tipoMeio, "Autocarro") == 0) {
 			novoMeio.tipo = Autocarro;
-			novoMeio.autonomia = ((novoMeio.bateria + 20) * novoMeio.custo) / 3;
 		}
 		else {
 			novoMeio.tipo = Outro;
-			((novoMeio.bateria + 20) * novoMeio.custo) / 3;
 		}
 
+		novoMeio.autonomia = calcularAutonomia(&novoMeio);
+
 		*listaMeiosMobilidade = adicionarMeioListaOrdenado(*listaMeiosMobilidade, novoMeio);
-		guardarMeiosMobilidadebin(*listaMeiosMobilidade);
 	}
 	fclose(ficheiro);
 	return 1;
 }
+
 
 /**
  * \brief  Função para adicionar um meio de mobilidade à lista encadeada
@@ -146,7 +143,6 @@ MeiosLista* lerMeiosbin(MeiosLista** listaMeios) {
 * \brief  Esta função adiciona um novo meio à lista de meios de mobilidade
 * 1º Cria um novo meio com os dados inseridos pelo usuário
 * 2º Adiciona o novo meio à lista chamando a função adicionarMeioListaOrdenado
-* 3º Guarda a lista atualizada no ficheiro binário chamando a função guardarMeiosMobilidadebin
  *
  * \param listaClientes
  * @author Alexandre Marques
@@ -159,8 +155,7 @@ bool adicionarNovoMeio(MeiosLista** listaMeios) {
 	obterDadosMeiosEcra(&novoMeio);
 	// Adiciona o novo meio à lista
 	*listaMeios = adicionarMeioListaOrdenado(*listaMeios, novoMeio);
-	// Guarda a lista atualizada no arquivo binário
-	guardarMeiosMobilidadebin(*listaMeios);
+	
 	return true;
 }
 
@@ -200,11 +195,51 @@ bool RemoverMeio(MeiosLista** listaMeios, int id) {
 	{
 		meioAnterior->next = meioAtual->next;
 	}
-	// Atualiza o arquivo binário com a lista atualizada
-	guardarMeiosMobilidadebin(*listaMeios);
+	
 	return true;
 
 }
+
+/**
+ * Esta função procura um meio de mobilidade na lista de meios por id
+ * 1º Percorre a lista encadeada e compara o id do meio com o id inserido pelo usuário
+ * 2º Retorna o meio se for encontrado
+ * 
+ * \param listaMeios
+ * \param id
+ * \return 
+ */
+
+Meios* procurarMeioPorId(MeiosLista* listaMeios, int id) {
+	MeiosLista* current = listaMeios;
+	while (current != NULL) {
+		if (current->m.id == id) {
+			return &(current->m);
+		}
+		current = current->next;
+	}
+	return NULL;  // Retorna NULL se o meio de mobilidade não for encontrado
+}
+
+/**
+ * Esta função modifica um dado de um meio de mobilidade
+ * 1º Procura o meio de mobilidade na lista de meios por id
+ * 2º Modifica o dado do meio de mobilidade
+ * 
+ * \param listaMeios
+ * \param id
+ * \param campo
+ * \return 
+ */
+
+bool ModificarMeioMobilidade(MeiosLista* listaMeios, int id, int campo) {
+	bool sucesso = false;
+
+	sucesso = ModificarDadoMeioMobilidade(listaMeios, id, campo);
+
+	return sucesso;
+}
+
 
 /**
  * Esta função destroi a lista de meios de mobilidade
@@ -222,6 +257,39 @@ void DestruirListaM(MeiosLista* lista) {
 		atual = proximo;
 	}
 }
+
+/**
+ * Esta função calcula a autonomia de um meio de mobilidade
+ * 1º Calcula a autonomia de acordo com o tipo de meio de mobilidade
+ * 2º Retorna a autonomia
+ * 
+ * \param meio
+ * \return 
+ */
+
+int calcularAutonomia(Meios* m) {
+	switch (m->tipo) {
+	case Bicicleta:
+		m->autonomia = m->bateria / 6;
+		break;
+	case Carro:
+		m->autonomia = m->bateria / 3;
+		break;
+	case Trotinete:
+		m->autonomia = m->bateria / 5;
+		break;
+	case Autocarro:
+		m->autonomia = m->bateria / 4;
+		break;
+	default:
+		// Defina um valor de autonomia padrão para outros tipos de meios de mobilidade, se necessário
+		break;
+	}
+
+	return m->autonomia;
+}
+
+
 
 
 #pragma region Ecra
@@ -253,7 +321,6 @@ void mostrarMeios(MeiosLista* lista) {
 		}
 		printf("Localizacao: %s\n", lista->m.localizacao);
 		printf("Bateria: %d\n", lista->m.bateria);
-		printf("Custo: %.2f\n", lista->m.custo);
 		printf("Autonomia: %d\n", lista->m.autonomia);
 		printf("Status: %d\n", lista->m.status);
 		printf("\n");
@@ -267,23 +334,18 @@ Meios* obterDadosMeiosEcra(Meios* m) {
 	scanf("%d", &m->id);
 	printf("Tipo (0 - Bicicleta, 1 - Carro, 2 - Trotinete, 3 - Autocarro, 4 - Outro): ");
 	scanf("%d", &x);
-	switch (x)
-	{
+	switch (x) {
 	case 0:
 		m->tipo = Bicicleta;
-		m->autonomia = ((m->bateria+20)*m->custo)/3;
 		break;
 	case 1:
 		m->tipo = Carro;
-		m->autonomia = ((m->bateria + 20) * m->custo) / 3;
 		break;
 	case 2:
 		m->tipo = Trotinete;
-		m->autonomia = ((m->bateria + 20) * m->custo) / 3;
 		break;
 	case 3:
 		m->tipo = Autocarro;
-		m->autonomia = ((m->bateria + 20) * m->custo) / 3;
 		break;
 	case 4:
 		m->tipo = Outro;
@@ -291,16 +353,18 @@ Meios* obterDadosMeiosEcra(Meios* m) {
 	default:
 		break;
 	}
+
+	m->autonomia = calcularAutonomia(m);
+
 	printf("Localizacao: ");
 	scanf("%s", m->localizacao);
 	printf("Bateria: ");
 	scanf("%d", &m->bateria);
-	printf("Custo: ");
-	scanf("%f", &m->custo);
 	printf("Status (0 - Inativo, 1 - Ativo): ");
 	scanf("%d", &m->status);
 	return m;
 }
+
 
 bool MeioRemovidoEcra(MeiosLista** listaMeios) {
 	int id;
@@ -312,6 +376,41 @@ bool MeioRemovidoEcra(MeiosLista** listaMeios) {
 	else {
 		return false;
 	}
+}
+
+bool ModificarDadoMeioMobilidade(MeiosLista* listaMeios, int id, int campo) {
+	Meios* meio = procurarMeioPorId(listaMeios, id);
+
+	if (meio == NULL) {
+		return false;
+	}
+
+	switch (campo) {
+	case 1:
+		printf("Novo Tipo (0 - Bicicleta, 1 - Carro, 2 - Trotinete, 3 - Autocarro, 4 - Outro): ");
+		int novoTipo;
+		scanf("%d", &novoTipo);
+		meio->tipo = novoTipo;
+		break;
+	case 2:
+		printf("Nova Localizacao: ");
+		scanf("%s", meio->localizacao);
+		break;
+	case 3:
+		printf("Nova Bateria: ");
+		scanf("%d", &meio->bateria);
+		break;
+	case 4:
+		printf("Novo Status (0 - Inativo, 1 - Ativo): ");
+		int novoStatus;
+		scanf("%d", &novoStatus);
+		meio->status = novoStatus;
+		break;
+	default:
+		printf("Campo inválido.\n");
+		break;
+	}
+	return true;
 }
 
 

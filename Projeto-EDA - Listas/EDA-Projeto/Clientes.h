@@ -102,6 +102,19 @@ bool adicionarNovoCliente(ClientesLista** listaClientes);
 ClientesLista* lerClientesbin(ClientesLista** listaClientes, char* filename);
 
 /**
+ * Esta função modifica um dado de um cliente
+ * 1º Procura pelo cliente com o NIF correspondente na lista encadeada
+ * 2º Modifica o dado do cliente
+ *
+ * \param listaClientes
+ * \param nif
+ * \param campo
+ * \return
+ */
+
+bool ModificarCliente(ClientesLista* listaClientes, char* nif, int campo);
+
+/**
  * Esta função destroi a lista de clientes
  * 1º Percorre a lista encadeada e destroi cada nó
  * 2º Liberta a memória alocada para a lista
@@ -116,6 +129,8 @@ void clienteRemovidoEcra(ClientesLista** listaClientes);
 
 
 Clientes* obterDadosClienteEcra(Clientes* c);
+
+bool ModificarDadoCliente(ClientesLista* listaClientes, char* nif, int campo);
 
 #endif // !Clientesh
 

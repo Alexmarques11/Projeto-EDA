@@ -199,6 +199,7 @@ Adj* DestruirAdjacencia(Adj* h);
 
 void MostraGrafo(Vertice* g);
 
+
 #pragma endregion
 
 #endif // !Grafosh

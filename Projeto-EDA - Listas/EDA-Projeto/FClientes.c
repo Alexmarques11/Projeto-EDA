@@ -11,7 +11,6 @@
 /**
 * \brief  Função para ler os dados dos clientes do ficheiro txt
 * 1º  Lê os dados de cada cliente e envia para a função adicionarClietneLista que insere na lista encadeada
- *2º Guarda a lista atualizada no ficheiro binário chamando a função guardarClientesbin
  * \param listaClientes
  * @author Alexandre Marques
  */
@@ -38,7 +37,6 @@ int lerClientestxt(ClientesLista** listaClientes) {
 * \brief  Insere Clientes no incio de uma lista encadeada   
  *1º Cria um novo nó com os dados do cliente
  * 2º Insere o novo nó no inicio da lista
- * 3º Guarda a lista atualizada no ficheiro binário chamando a função guardarClientesbin
  * \param recebe uma lista e um cliente para o inserir na lista
  * @author Alexandre Marques
  */
@@ -79,7 +77,7 @@ ClientesLista* adicionarClienteLista(ClientesLista* lista, Clientes c) {
  */
 
 bool guardarClientesbin(ClientesLista* lista) {
-    FILE* ficheiro = fopen("Clientes.bin", "ab");
+    FILE* ficheiro = fopen("Clientes.bin", "wb");
     if (ficheiro == NULL) {
         return false;
     }
@@ -98,7 +96,6 @@ bool guardarClientesbin(ClientesLista* lista) {
 * \brief  Esta função adiciona um novo cliente à lista de clientes
 * 1º Cria um novo cliente com os dados inseridos pelo usuário
 * 2º Adiciona o novo cliente à lista chamando a função adicionarClienteLista
-* 3º Guarda a lista atualizada no ficheiro binário chamando a função guardarClientesbin
  *
  * \param listaClientes
  * @author Alexandre Marques
@@ -112,8 +109,6 @@ bool adicionarNovoCliente(ClientesLista** listaClientes) {
     // Adiciona o novo cliente à lista
     *listaClientes = adicionarClienteLista(*listaClientes, novoCliente);
 
-    // Guarda a lista atualizada no arquivo binário
-    guardarClientesbin(*listaClientes);
 
     return true;
 }
@@ -129,7 +124,7 @@ bool adicionarNovoCliente(ClientesLista** listaClientes) {
  */
 
 ClientesLista* lerClientesbin(ClientesLista** listaClientes, char* fileName) {
-	FILE* ficheiro = fopen("Clientes.bin", "rb");
+	FILE* ficheiro = fopen(fileName, "rb");
     if (ficheiro == NULL) {
 		return 0;
 	}
@@ -179,22 +174,48 @@ bool removerCliente(ClientesLista** listaClientes, char nif[]) {
     }
     // Atualiza o arquivo binário com a lista atualizada
     free(clienteAtual);
-    guardarClientesbin(*listaClientes);
 
     return true;
 }
 
-Clientes* obterClientePorNIF(ClientesLista* lista, char* nif) {
-    ClientesLista* atual = lista;
+ClientesLista* procurarClientePorNIF(ClientesLista* listaClientes, const char* nif) {
+    ClientesLista* atual = listaClientes;
 
-    while (atual != NULL && strcmp(atual->c.nif, nif) <= 0) {
-        if (strcmp(atual->c.nif, nif) == 0) {
-            return &(atual->c);
+    while (atual != NULL) {
+        int comparacao = strcmp(atual->c.nif, nif);
+        if (comparacao == 0) {
+            return atual;
+        }
+        else if (comparacao > 0) {
+            // O NIF atual é maior que o NIF procurado,
+            // então não há necessidade de continuar a busca.
+            return NULL;
         }
         atual = atual->next;
     }
 
+    // O cliente com o NIF procurado não foi encontrado.
     return NULL;
+}
+
+
+/**
+ * Esta função modifica um dado de um cliente
+ * 1º Procura pelo cliente com o NIF correspondente na lista encadeada
+ * 2º Modifica o dado do cliente
+ * 
+ * \param listaClientes
+ * \param nif
+ * \param campo
+ * \return 
+ */
+
+bool ModificarCliente(ClientesLista* listaClientes, char* nif, int campo) {
+    bool sucesso = false;
+
+    sucesso = ModificarDadoCliente(listaClientes, nif, campo);
+
+    return sucesso;
 }
 
 /**
@@ -246,6 +267,35 @@ void clienteRemovidoEcra(ClientesLista** listaClientes) {
     scanf("%s", nif);
     removerCliente(&listaClientes, nif);
 
+}
+
+bool ModificarDadoCliente(ClientesLista* listaClientes, char* nif, int campo) {
+    ClientesLista* cliente = procurarClientePorNIF(listaClientes, nif);
+
+    if (cliente == NULL) {
+        return false;
+    }
+
+    switch (campo) {
+    case 1:
+        printf("Novo Nome: ");
+        scanf("%s", cliente->c.nome);
+        break;
+    case 2:
+        printf("Nova Morada: ");
+        scanf("%s", cliente->c.morada);
+        break;
+    case 3:
+        printf("Novo Saldo: ");
+        float novoSaldo;
+        scanf("%f", &novoSaldo);
+        cliente->c.saldo = novoSaldo;
+        break;
+    default:
+        printf("Campo inválido.\n");
+        break;
+    }
+    return true;
 }
 
 #pragma endregion
