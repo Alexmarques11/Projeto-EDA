@@ -372,31 +372,68 @@ bool DepthFirstSearchRec(Vertice* g, int origem, int dest) {
  */
 
 int CalculaDistancia(Vertice* g, int origem, int dest) {
-	if (!DepthFirstSearchRec)
+	if (g == NULL)
 		return -1;
 
 	if (origem == dest)
 		return 0;
 
-	Vertice* auxOrigem = ProcuraVertice(g, origem);
-	auxOrigem->visitado = true;
+	// Inicialização dos vértices
+	Vertice* verticeAtual = ProcuraVertice(g, origem);
+	verticeAtual->visitado = true;
 
-	Adj* adj = auxOrigem->adjacentes;
-	while (adj) {
-		Vertice* adjacente = ProcuraVertice(g, adj->id);
-		if (adjacente->visitado == false) {
-			if (adj->dist != -1) {
-				int distancia = adj->dist + CalculaDistancia(g, adj->id, dest);
-				if (distancia != -1)
+	// Array para armazenar as distâncias
+	int* distancias = (int*)malloc(sizeof(int) * 100); // Tamanho máximo do array
+	for (int i = 0; i < 100; i++) {
+		distancias[i] = INT_MAX;
+	}
+	distancias[verticeAtual->id] = 0;
+
+	// Fila para armazenar os vértices a serem visitados
+	Vertice** fila = (Vertice**)malloc(sizeof(Vertice*) * 100); // Tamanho máximo da fila
+	int frente = 0;
+	int tras = 0;
+	fila[tras++] = verticeAtual;
+
+	while (frente != tras) {
+		Vertice* v = fila[frente++];
+		Adj* adjacente = v->adjacentes;
+
+		while (adjacente != NULL) {
+			Vertice* adjacenteVertice = ProcuraVertice(g, adjacente->id);
+
+			if (adjacenteVertice->visitado == false) {
+				adjacenteVertice->visitado = true;
+				distancias[adjacenteVertice->id] = distancias[v->id] + adjacente->dist;
+
+				if (adjacenteVertice->id == dest) {
+					int distancia = distancias[adjacenteVertice->id];
+
+					// Resetar os vértices
+					for (int i = 0; i < tras; i++) {
+						fila[i]->visitado = false;
+					}
+					free(distancias);
+					free(fila);
 					return distancia;
+				}
+
+				fila[tras++] = adjacenteVertice;
 			}
+			adjacente = adjacente->next;
 		}
-		adj = adj->next;
 	}
 
-	auxOrigem->visitado = false; // Redefinir o estado de visitado para false
-	return -1;
+	// Resetar os vértices
+	for (int i = 0; i < tras; i++) {
+		fila[i]->visitado = false;
+	}
+	free(distancias);
+	free(fila);
+
+	return -1; 
 }
+
 
 
 /**

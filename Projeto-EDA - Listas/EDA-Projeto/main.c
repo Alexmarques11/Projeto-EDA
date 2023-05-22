@@ -89,7 +89,7 @@ int main() {
 	grafo = LerGrafoBin(grafo, "Vertices.bin", &res);
 	grafo = LerAdjBin(grafo, &res);
 
-	y = CalculaDistancia(grafo, 1, 2 );
+	y = CalculaDistancia(grafo, 0, 3);
 
 	printf("%d", y);
 
