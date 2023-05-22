@@ -9,32 +9,32 @@
 #include "Grafos.h"	
 
 
-/*
- .Esta função serve para criar um novo grafo
- *
-* \param $PARAMS
-* \return $RETURN
-*/
+ /*
+  .Esta função serve para criar um novo grafo
+  *
+ * \param $PARAMS
+ * \return $RETURN
+ */
 Vertice* CriaGrafo() {
 	return NULL;
 }
 
-  /**
-   * .Esta função serve na criar um novo vertice
-   * 1º passo: criar um novo vertice
-   * 2º passo: inserir o novo vertice na lista de vertices
-   * 3º passo: retornar o grafo
-   *
-   * \param $PARAMS
-   * \return $RETURN
-   */
+/**
+ * .Esta função serve na criar um novo vertice
+ * 1º passo: criar um novo vertice
+ * 2º passo: inserir o novo vertice na lista de vertices
+ * 3º passo: retornar o grafo
+ *
+ * \param $PARAMS
+ * \return $RETURN
+ */
 Vertice* CriaVertice(char* cidade, int id) {
 	Vertice* novo = (Vertice*)calloc(1, sizeof(Vertice));
 	if (novo == NULL) return NULL;
 	novo->id = id;
 	strcpy(novo->cidade, cidade);
-	novo->next = NULL;			
-	novo->adjacentes = NULL;	
+	novo->next = NULL;
+	novo->adjacentes = NULL;
 	return novo;
 }
 
@@ -45,7 +45,7 @@ Vertice* CriaVertice(char* cidade, int id) {
  * 3º passo: se não estiver vazio, percorrer a lista de vertices até encontrar a posição correta
  * 3º passo: inserir o novo vertice na posição correta
  * 4º passo: retornar o grafo
- * 
+ *
  * \param $PARAMS
  * \return $RETURN
  */
@@ -81,10 +81,10 @@ Vertice* InsereVertice(Vertice* g, Vertice* novo, bool* res) {
  * Esta função serve para criar um novo adjacente
  * 1º passo: criar um novo adjacente
  * 2º passo: retornar o adjacente
- * 
+ *
  * \param id
  * \param dist
- * \return 
+ * \return
  */
 
 Adj* CriaAdj(int id, int dist) {
@@ -102,11 +102,11 @@ Adj* CriaAdj(int id, int dist) {
  * 2º passo: se estiver vazio, inserir o novo adjacente
  * 3º passo: se não estiver vazio, percorrer a lista de adjacente até encontrar a posição correta
  * 4º passo: inserir o novo adjacente na posição correta
- * 
+ *
  * \param g
  * \param novo
  * \param res
- * \return 
+ * \return
  */
 
 Adj* InsereAdj(Adj* g, Adj* novo, bool* res) {
@@ -140,21 +140,21 @@ Adj* InsereAdj(Adj* g, Adj* novo, bool* res) {
  * 1º passo: percorrer a lista de vertices até encontrar o vertice
  * 2º passo: retornar o vertice
  * 3º passo: se não encontrar o vertice, retornar NULL
- * 
+ *
  * \param g
  * \param id
- * \return 
+ * \return
  */
 
 Vertice* ProcuraVertice(Vertice* g, int id) {
-    Vertice* aux = g;
-    while (aux != NULL) {
-        if (aux->id == id) {
-            return aux;
-        }
-        aux = aux->next;
-    }
-    return NULL;
+	Vertice* aux = g;
+	while (aux != NULL) {
+		if (aux->id == id) {
+			return aux;
+		}
+		aux = aux->next;
+	}
+	return NULL;
 }
 
 /**
@@ -164,12 +164,12 @@ Vertice* ProcuraVertice(Vertice* g, int id) {
  * 3º passo: criar um novo adjacente
  * 4º passo: inserir o novo adjacente na lista de adjacente
  * 5º passo: retornar o grafo
- * 
+ *
  * \param g
  * \param idOrigem
  * \param idDestino
  * \param dist
- * \return 
+ * \return
  */
 
 Vertice* AdicionaAdjacente(Vertice* g, int idOrigem, int idDestino, int dist) {
@@ -190,10 +190,10 @@ Vertice* AdicionaAdjacente(Vertice* g, int idOrigem, int idDestino, int dist) {
  * 3º passo: percorrer a lista de vertices e guardar os vertices no ficheiro
  * 4º passo: percorrer a lista de adjacente e guardar os adjacentes no ficheiro
  * 5º passo: fechar o ficheiro
- * 
+ *
  * \param h
  * \param fileName
- * \return 
+ * \return
  */
 
 int GuardarGrafoBin(Vertice* h, char* fileName) {
@@ -230,11 +230,11 @@ int GuardarGrafoBin(Vertice* h, char* fileName) {
  * 2º passo: abrir o ficheiro
  * 3º passo: percorrer a lista de adjacente e guardar os adjacentes no ficheiro
  * 4º passo: fechar o ficheiro
- * 
+ *
  * \param h
  * \param fileName
  * \param codVerticeOrigem
- * \return 
+ * \return
  */
 
 int GuardarAdjBin(Adj* h, char* fileName, int codVerticeOrigem) {
@@ -268,16 +268,16 @@ int GuardarAdjBin(Adj* h, char* fileName, int codVerticeOrigem) {
  * 2º passo: abrir o ficheiro
  * 3º passo: ler o ficheiro e guardar os vertices no grafo
  * 4º passo: fechar o ficheiro
- * 
+ *
  * \param h
  * \param fileName
  * \param res
- * \return 
+ * \return
  */
 
 Vertice* LerGrafoBin(Vertice* h, char* fileName, bool* res) {
 	*res = false;
-	
+
 	FILE* fp = fopen(fileName, "rb");
 	if (fp == NULL) return NULL;
 
@@ -299,11 +299,11 @@ Vertice* LerGrafoBin(Vertice* h, char* fileName, bool* res) {
  * 2º passo: abrir o ficheiro
  * 3º passo: ler o ficheiro e guardar os adjacentes no grafo
  * 4º passo: fechar o ficheiro
- * 
+ *
  * \param h
  * \param fileName
  * \param res
- * \return 
+ * \return
  */
 
 Vertice* LerAdjBin(Vertice* g, bool* res) {
@@ -325,15 +325,88 @@ Vertice* LerAdjBin(Vertice* g, bool* res) {
 	return g;
 }
 
+/**
+ * Esta função realiza uma busca em profundidade recursiva em um grafo a partir de um vértice de origem,
+ * ela verifica se existe um caminho entre a origem e o destino no grafo.
+ * 1º passo: verificar se o grafo está vazio
+ * 2º passo: verificar se o vértice de origem e o vértice de destino existem no grafo
+ * 3º passo: marcar o vértice de origem como visitado
+ * 4º passo: percorrer a lista de adjacentes do vértice de origem
+ * 5º passo: verificar se o vértice adjacente já foi visitado
+ * 6º passo: se o vértice adjacente não foi visitado, chamar a função recursivamente
+ *
+ * \param g       Ponteiro para o primeiro vértice do grafo
+ * \param origem  Valor do vértice de origem
+ * \param dest    Valor do vértice de destino
+ * \return        Retorna true se existe um caminho entre a origem e o destino, caso contrário, retorna false.
+ */
+
+bool DepthFirstSearchRec(Vertice* g, int origem, int dest) {
+	if (origem == dest)
+		return true;
+
+	Vertice* aux = ProcuraVertice(g, origem);
+	aux->visitado = true;
+	//printf(" Vertice: %s : %d\n", aux->cidade, aux->cod);
+
+	Adj* adj = aux->adjacentes;
+	while (adj) {
+		Vertice* adjacente = ProcuraVertice(g, adj->id);
+		if (adjacente->visitado == false) {
+			bool existe = DepthFirstSearchRec(g, adj->id, dest);
+			if (existe)
+				return true;
+		}
+		adj = adj->next;
+	}
+	return false;
+}
+
+/**
+ * Esta função calcula a distância entre dois vértices em um grafo.
+ *
+ * \param g       Ponteiro para o primeiro vértice do grafo
+ * \param origem  Valor do vértice de origem
+ * \param dest    Valor do vértice de destino
+ * \return        Retorna a distância entre os vértices origem e destino. Se não houver um caminho, retorna -1.
+ */
+
+int CalculaDistancia(Vertice* g, int origem, int dest) {
+	if (!DepthFirstSearchRec)
+		return -1;
+
+	if (origem == dest)
+		return 0;
+
+	Vertice* auxOrigem = ProcuraVertice(g, origem);
+	auxOrigem->visitado = true;
+
+	Adj* adj = auxOrigem->adjacentes;
+	while (adj) {
+		Vertice* adjacente = ProcuraVertice(g, adj->id);
+		if (adjacente->visitado == false) {
+			if (adj->dist != -1) {
+				int distancia = adj->dist + CalculaDistancia(g, adj->id, dest);
+				if (distancia != -1)
+					return distancia;
+			}
+		}
+		adj = adj->next;
+	}
+
+	auxOrigem->visitado = false; // Redefinir o estado de visitado para false
+	return -1;
+}
+
 
 /**
  * Esta função serve para destruir o grafo
  * 1º passo: verificar se o grafo está vazio
  * 2º passo: se não estiver vazio, percorrer a lista de vertices e destruir os adjacentes
  * 3º passo: destruir o vertice
- * 
+ *
  * \param g
- * \return 
+ * \return
  */
 
 Vertice* DestruirGrafo(Vertice* g) {
@@ -354,9 +427,9 @@ Vertice* DestruirGrafo(Vertice* g) {
  * Esta função serve para destruir a lista de adjacencias
  * 1º passo: verificar se a lista de adjacencias está vazia
  * 2º passo: se não estiver vazia, percorrer a lista de adjacencias e destruir os adjacentes
- * 
+ *
  * \param h
- * \return 
+ * \return
  */
 
 Adj* DestruirAdjacencia(Adj* h) {
@@ -371,6 +444,7 @@ Adj* DestruirAdjacencia(Adj* h) {
 	}
 	return h;
 }
+
 
 #pragma region Ecra
 

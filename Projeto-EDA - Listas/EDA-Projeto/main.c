@@ -18,18 +18,18 @@ int main() {
 #pragma region Clientes
 	bool aux;
 	int x;
-	ClientesLista* listaClientes = NULL;
+	//ClientesLista* listaClientes = NULL;
 	//x=lerClientestxt(&listaClientes);
-	lerClientesbin(&listaClientes, "Clientes.bin");
+	//lerClientesbin(&listaClientes, "Clientes.bin");
 	//adicionarNovoCliente(&listaClientes);
 	//clienteRemovidoEcra(listaClientes);
 	//system("cls");
-	mostrarClientes(listaClientes);
+	//mostrarClientes(listaClientes);
 	//aux = ModificarCliente(listaClientes,"112233445", 2);
-	aux=guardarClientesbin(listaClientes);
+	//aux=guardarClientesbin(listaClientes);
 	//mostrarClientes(listaClientes);
 
-	DestruirListaC(listaClientes);
+	//DestruirListaC(listaClientes);
 #pragma endregion
 
 #pragma region Gestores
@@ -75,61 +75,42 @@ int main() {
 	*/
 	//DestruirListaM(listaMeios);
 
+#pragma endregion
+
 #pragma region Grafos
 
 	
-	//static int total = 0;					//total de vertices
-	//bool res;
+	static int total = 0; // total de vértices
+	bool res;
+	int y = 0;
 
-	//Vertice* grafo = CriaGrafo();
-	
-	
-	/*
-	
-	Vertice* novoVertice = CriaVertice("Braga", total);
-	if (novoVertice != NULL) {
-		grafo = InsereVertice(grafo, novoVertice, &res);
-		total++;
-	}
+	Vertice* grafo = CriaGrafo();
 
-	novoVertice = CriaVertice("Amares", total);
-	if (novoVertice != NULL) {
-		grafo = InsereVertice(grafo, novoVertice, &res);
-		total++;
-	}
+	grafo = LerGrafoBin(grafo, "Vertices.bin", &res);
+	grafo = LerAdjBin(grafo, &res);
 
-	novoVertice = CriaVertice("VilaVerde", total);
-	if (novoVertice != NULL) {
-		grafo = InsereVertice(grafo, novoVertice, &res);
-		total++;
-	}
+	y = CalculaDistancia(grafo, 1, 2 );
 
-	AdicionaAdjacente(grafo, 0, 1, 10);
-	AdicionaAdjacente(grafo, 0, 2, 20);
-	AdicionaAdjacente(grafo, 1, 2, 15);
-	
-	*/
+	printf("%d", y);
 
-	//MostraGrafo(grafo);
-	
 	//GuardarGrafoBin(grafo, "Vertices.bin");
 
-	//system("cls");
-
-	//grafo = DestruirGrafo(grafo);
-
-	//MostraGrafo(grafo);
-
-	//grafo = LerGrafoBin(grafo, "Vertices.bin", &res);
-
-	//MostraGrafo(grafo);
-
-	//grafo = LerAdjBin(grafo, &res);
-
 	//MostraGrafo(grafo);
 
 	//grafo = DestruirGrafo(grafo);
 	
+	
+#pragma endregion
+
+#pragma region Alugueres
+
+	//AluguerLista* listaAlugueres = NULL;
+
+
+	//x = lerAluguerestxt(&listaAlugueres, "Alugueres.txt");
+
+	//imprimirAluguerLista(listaAlugueres);
+
 #pragma endregion
 
 }

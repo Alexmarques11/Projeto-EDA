@@ -1,6 +1,6 @@
-1;Bicicleta;Lisboa;100;1;
+1;Bicicleta;Braga;100;1;
 2;Carro;Porto;501;
-3;Trotinete;Fafe;751;
+3;Trotinete;Amares;751;
 4;Bicicleta;Amares;50;1;
 5;Autocarro;VilaVerde;751;
 6;Carro;Barcelos;15;1;

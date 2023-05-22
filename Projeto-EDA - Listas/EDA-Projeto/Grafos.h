@@ -19,36 +19,37 @@
 #define N 20
 
 typedef struct Adjacencia {
-	int id;	
+	int id;
 	char cidade[N];
-	int dist;		
+	int dist;
 	bool pcontrolo;
 	struct Adj* next;
 }Adj;
 
 typedef struct Vertice {
-	int id;					
-	char cidade[N];				
-	struct Vertice* next;		
-	struct Adj* adjacentes;		
+	int id;
+	char cidade[N];
+	bool visitado;
+	struct Vertice* next;
+	struct Adj* adjacentes;
 } Vertice;
 
 
 typedef struct AdjacenciaParaFicheiro {
 	int codOrigem;
-	int codDestino;		
-	int dist;		
+	int codDestino;
+	int dist;
 }AdjFile;
 
 typedef struct VerticeParaFicheiro {
-	int id;					
-	char cidade[N];				
+	int id;
+	char cidade[N];
 } VerticeFile;
 
 
 /**
  * Esta função serve para criar um novo grafo
- * 
+ *
  * \param $PARAMS
  * \return $RETURN
  */
@@ -137,7 +138,7 @@ Vertice* AdicionaAdjacente(Vertice* g, int idOrigem, int idDestino, int dist);
 
 /**
  * .Esta mostra o grafo
- * 
+ *
  * \param $PARAMS
  * \return $RETURN
  */
@@ -172,15 +173,15 @@ Vertice* LerGrafoBin(Vertice* h, char* fileName, bool* res);
 
 Vertice* LerAdjBin(Vertice* g, bool* res);
 
- /**
-  * Esta função serve para destruir o grafo
-  * 1º passo: verificar se o grafo está vazio
-  * 2º passo: se não estiver vazio, percorrer a lista de vertices e destruir os adjacentes
-  * 3º passo: destruir o vertice
-  *
-  * \param g
-  * \return
-  */
+/**
+ * Esta função serve para destruir o grafo
+ * 1º passo: verificar se o grafo está vazio
+ * 2º passo: se não estiver vazio, percorrer a lista de vertices e destruir os adjacentes
+ * 3º passo: destruir o vertice
+ *
+ * \param g
+ * \return
+ */
 
 Vertice* DestruirGrafo(Vertice* g);
 
@@ -195,6 +196,27 @@ Vertice* DestruirGrafo(Vertice* g);
 
 Adj* DestruirAdjacencia(Adj* h);
 
+/**
+ * Esta função realiza uma busca em profundidade recursiva em um grafo a partir de um vértice de origem,
+ * ela verifica se existe um caminho entre a origem e o destino no grafo.
+ * 1º passo: verificar se o grafo está vazio
+ * 2º passo: verificar se o vértice de origem e o vértice de destino existem no grafo
+ * 3º passo: marcar o vértice de origem como visitado
+ * 4º passo: percorrer a lista de adjacentes do vértice de origem
+ * 5º passo: verificar se o vértice adjacente já foi visitado
+ * 6º passo: se o vértice adjacente não foi visitado, chamar a função recursivamente
+ *
+ * \param g       Ponteiro para o primeiro vértice do grafo
+ * \param origem  Valor do vértice de origem
+ * \param dest    Valor do vértice de destino
+ * \return        Retorna true se existe um caminho entre a origem e o destino, caso contrário, retorna false.
+ */
+
+bool DepthFirstSearchRec(Vertice* g, int origem, int dest);
+
+int CalculaDistancia(Vertice* g, int origem, int dest);
+
+
 #pragma region Ecra
 
 void MostraGrafo(Vertice* g);
@@ -203,4 +225,5 @@ void MostraGrafo(Vertice* g);
 #pragma endregion
 
 #endif // !Grafosh
+
 

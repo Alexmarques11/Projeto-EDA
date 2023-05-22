@@ -8,98 +8,122 @@
 
 #include "Aluguer.h"	
 
+ /**
+  * Esta função lê os alugueres de um ficheiro txt e insere-os numa lista encadeada
+  * 1º Lê os dados de cada aluguer e envia para a função adicionarAluguerLista que insere na lista encadeada
+  * 2º Retorna 1 se o ficheiro foi lido com sucesso e 0 se não foi lido com sucesso
+  * 
+  * \param listaAlugueres
+  * \param filename
+  * \return 
+  */
+int lerAluguerestxt(AluguerLista** listaAlugueres,  char* filename) {
+    FILE* ficheiro = fopen(filename, "r");
+    if (ficheiro == NULL) {
+        return 0;
+    }
+
+    // Lê os dados de cada aluguer e insere na lista encadeada
+    char linha[100];
+    while (fgets(linha, 100, ficheiro) != NULL) {
+        Aluguer novoAluguer;
+        sscanf(linha, "%d;%[^;];%d;%[^;];%d", &novoAluguer.id, novoAluguer.nif, &novoAluguer.idMeio, novoAluguer.data, &novoAluguer.idDestino);
+        *listaAlugueres = adicionarAluguerLista(*listaAlugueres, novoAluguer);
+    }
+
+    fclose(ficheiro);
+    return 1;
+}
+
 /**
- * .Esta função cria um aluguer e envia para a lista encadeada
+ * Esta função adiciona um aluguer à lista encadeada
+ * 1º Aloca memória para o novo aluguer
+ * 2º Verifica se a lista está vazia ou se o novo aluguer tem o menor ID
+ * 3º Encontra a posição correta para inserir o novo aluguer na lista ordenada
+ * 4º Retorna a lista com o novo aluguer
  * 
- * \param m
- * \param c
- * \param d
  * \param lista
+ * \param a
  * \return 
  */
 
+AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer a) {
+    AluguerLista* novo = (AluguerLista*)malloc(sizeof(AluguerLista));
+    if (novo == NULL) return NULL;
+    novo->a = a;
+    novo->next = NULL;
 
+    if(existeAluguer(lista, a)) return lista;
+    
 
-/*Aluguer* ConstruirAluguer(Aluguer* lista, Clientes c, Meios m, DadosAluguer d) {
-	Aluguer a;
-	a.cliente = c;
-	a.meio = m;
-	a.dados = d;
-	adicionarAluguerLista(lista, a);
+    // Verifica se a lista está vazia ou se o novo aluguer tem o menor ID
+    if (lista == NULL || a.id < lista->a.id) {
+        novo->next = lista;
+        return novo;
+    }
 
-	return lista;
-}*/
+    // Encontra a posição correta para inserir o novo aluguer na lista ordenada
+    AluguerLista* anterior = lista;
+    AluguerLista* atual = lista->next;
+    while (atual != NULL && atual->a.id < a.id) {
+        anterior = atual;
+        atual = atual->next;
+    }
+
+    novo->next = atual;
+    anterior->next = novo;
+
+    return lista;
+}
 
 /**
- * .Esta função adiciona um aluguer à lista encadeada
+ * Esta função verifica se um aluguer existe na lista encadeada
+ * 1º Percorre a lista encadeada e verifica se o ID do aluguer é igual ao ID do aluguer da lista
+ * 2º Retorna true se o aluguer existe na lista e false se não existe
  * 
  * \param lista
- * \param novoAluguer
+ * \param a
  * \return 
  */
 
-/*AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer novoAluguer) {
-	AluguerLista* novoNo = (AluguerLista*)malloc(sizeof(AluguerLista));
-	novoNo->a = novoAluguer;
-	novoNo->next = NULL;
-
-	if (lista == NULL) {
-		return novoNo;
-	}
-	else if (lista->a.dados.id < novoAluguer.dados.id) {
-		novoNo->next = lista;
-		return novoNo;
-	}
-	else {
-		AluguerLista* atual = lista;
-		while (atual->next != NULL && atual->next->a.dados.id > novoAluguer.dados.id) {
-			atual = atual->next;
+bool existeAluguer(AluguerLista* lista, Aluguer a) {
+	AluguerLista* atual = lista;
+    while (atual != NULL) {
+        if (atual->a.id == a.id) {
+			return true;
 		}
-		novoNo->next = atual->next;
-		atual->next = novoNo;
-		return lista;
+		atual = atual->next;
 	}
-}
-*/
-
-/**
- * .Esta função lê os dados do aluguer do ficheiro binário
- * 
- * \param lista
- * \return 
- */
-
-bool guardarAluguerbin(AluguerLista* lista) {
-	FILE* ficheiro = fopen("Alugueres.bin", "wb");
-	if (ficheiro == NULL) {
-		return false;
-	}
-	while (lista != NULL) {
-		fwrite(&lista->a, sizeof(Aluguer), 1, ficheiro);
-		lista = lista->next;
-	}
-	fclose(ficheiro);
-	return true;
+	return false;
 }
 
-/**
- * Esta função lê os dados do aluguer do ficheiro binário
- * 
- * \param lista
- * \return 
- */
+#pragma region Ecra
 
-/*bool adicionarNovoAluguer(AluguerLista** listaAlugueres, MeiosLista* listaMeios, ClientesLista* listaClientes) {
-	// Cria um novo aluguer com os dados inseridos pelo usuário
-	Aluguer novoAluguer;
-	obterDadosAluguerEcra(&novoAluguer, listaMeios, listaClientes);
-	// Adiciona o novo aluguer à lista
-	*listaAlugueres = adicionarAluguerLista(*listaAlugueres, novoAluguer);
+void imprimirAluguerLista(AluguerLista* lista) {
+    if (lista == NULL) {
+        printf("A lista de aluguers esta vazia.\n");
+        return;
+    }
+
+    printf("Lista de Aluguers:\n");
+    printf("ID |    NIF     | ID Meio | Data       | ID Destino | KM | Preco\n");
+    printf("-----------------------------------------------------\n");
+
+    AluguerLista* atual = lista;
+    while (atual != NULL) {
+        printf("%-2d | %-10s | %-7d | %-10s | %-11d \n",
+            atual->a.id, atual->a.nif, atual->a.idMeio, atual->a.data,
+            atual->a.idDestino);
+        /*printf("%-2d | %-10s | %-7d | %-10s | %-11d | %-2d | %.2f\n",
+        atual->a.id, atual->a.nif, atual->a.idMeio, atual->a.data,
+            atual->a.idDestino, atual->a.km, atual->a.preco);*/
+        atual = atual->next;
+    }
+}
 
 
-		return true;
-}	
-*/
+#pragma endregion
+
 
 
 

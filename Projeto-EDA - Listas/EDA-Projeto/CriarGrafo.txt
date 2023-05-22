@@ -1,0 +1,103 @@
+V: 0 - Braga
+ ->  (1) Distancia: 22
+ ->  (2) Distancia: 20
+ ->  (4) Distancia: 30
+ ->  (6) Distancia: 17
+ ->  (7) Distancia: 25
+
+V: 1 - Amares
+ ->  (0) Distancia: 22
+ ->  (2) Distancia: 12
+ ->  (3) Distancia: 30
+ ->  (7) Distancia: 10
+
+V: 2 - VilaVerde
+ ->  (0) Distancia: 20
+ ->  (1) Distancia: 12
+ ->  (4) Distancia: 31
+
+V: 3 - TerrasDeBouro
+
+V: 4 - Barcelos
+ ->  (0) Distancia: 30
+
+V: 5 - Famalicao
+
+V: 6 - Guimaraes
+ ->  (0) Distancia: 17
+
+V: 7 - PovoaDeLanhoso
+
+
+Vertice* novoVertice = CriaVertice("Braga", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+
+	novoVertice = CriaVertice("Amares", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+	novoVertice = CriaVertice("VilaVerde", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+
+	novoVertice = CriaVertice("TerrasDeBouro", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+
+	novoVertice = CriaVertice("Barcelos", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+
+	novoVertice = CriaVertice("Famalicao", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+
+	novoVertice = CriaVertice("Guimaraes", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+
+	novoVertice = CriaVertice("PovoaDeLanhoso", total);
+	if (novoVertice != NULL) {
+		grafo = InsereVertice(grafo, novoVertice, &res);
+		total++;
+	}
+	
+	
+	//0-Braga
+	//1-Amares
+	//2-VilaVerde
+	//3-TerrasDeBouro
+	//4-Barcelos
+	//5-Famalicao
+	//6-Guimaraes
+	//7-PovoaDeLanhoso
+	
+
+	AdicionaAdjacente(grafo, 0, 1, 22);
+	AdicionaAdjacente(grafo, 0, 2, 20);
+	AdicionaAdjacente(grafo, 0, 7, 25);
+	AdicionaAdjacente(grafo, 0, 6, 17);
+	AdicionaAdjacente(grafo, 0, 4, 30);
+	AdicionaAdjacente(grafo, 1, 0, 22);
+	AdicionaAdjacente(grafo, 1, 2, 12);
+	AdicionaAdjacente(grafo, 1, 7, 10);
+	AdicionaAdjacente(grafo, 1, 3, 30);
+	AdicionaAdjacente(grafo, 2, 4, 31);
+	AdicionaAdjacente(grafo, 2, 1, 12);
+	AdicionaAdjacente(grafo, 2, 0, 20);
+	AdicionaAdjacente(grafo, 6, 0, 17);
+	AdicionaAdjacente(grafo, 4, 0, 30);
