@@ -17,7 +17,7 @@
   * \param filename
   * \return 
   */
-int lerAluguerestxt(AluguerLista** listaAlugueres,  char* filename) {
+int lerAluguerestxt(AluguerLista** listaAlugueres, char* filename, Vertice* g, MeiosLista* mlista) {
     FILE* ficheiro = fopen(filename, "r");
     if (ficheiro == NULL) {
         return 0;
@@ -28,12 +28,26 @@ int lerAluguerestxt(AluguerLista** listaAlugueres,  char* filename) {
     while (fgets(linha, 100, ficheiro) != NULL) {
         Aluguer novoAluguer;
         sscanf(linha, "%d;%[^;];%d;%[^;];%d", &novoAluguer.id, novoAluguer.nif, &novoAluguer.idMeio, novoAluguer.data, &novoAluguer.idDestino);
+        novoAluguer.km = CalcularKm(g, mlista, novoAluguer.idMeio, novoAluguer);
         *listaAlugueres = adicionarAluguerLista(*listaAlugueres, novoAluguer);
     }
 
     fclose(ficheiro);
     return 1;
 }
+
+int CalcularKm(Vertice* g, MeiosLista* mlista, int idMeio, Aluguer a) {
+
+    Meios* m=procurarMeioPorId(mlista, idMeio);
+    
+    int i= ConverterNomeParaID(g, m->localizacao);
+
+    
+    return CalculaDistancia(g, i ,a.idDestino );
+
+}
+
+
 
 /**
  * Esta função adiciona um aluguer à lista encadeada
@@ -111,12 +125,10 @@ void imprimirAluguerLista(AluguerLista* lista) {
 
     AluguerLista* atual = lista;
     while (atual != NULL) {
-        printf("%-2d | %-10s | %-7d | %-10s | %-11d \n",
-            atual->a.id, atual->a.nif, atual->a.idMeio, atual->a.data,
-            atual->a.idDestino);
-        /*printf("%-2d | %-10s | %-7d | %-10s | %-11d | %-2d | %.2f\n",
+ 
+        printf("%-2d | %-10s | %-7d | %-10s | %-11d | %-2d | %.2f\n",
         atual->a.id, atual->a.nif, atual->a.idMeio, atual->a.data,
-            atual->a.idDestino, atual->a.km, atual->a.preco);*/
+            atual->a.idDestino, atual->a.km, atual->a.preco);
         atual = atual->next;
     }
 }

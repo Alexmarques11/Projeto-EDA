@@ -47,9 +47,9 @@ int main() {
 
 #pragma region Meios
 
-	//MeiosLista* listaMeios = NULL;
+	MeiosLista* listaMeios = NULL;
 	//lerMeiostxt(&listaMeios);
-	//lerMeiosbin(&listaMeios);
+	lerMeiosbin(&listaMeios);
 	//adicionarNovoMeio(&listaMeios);
 	//MeioRemovidoEcra(&listaMeios);
 	//system("cls");
@@ -89,11 +89,15 @@ int main() {
 	grafo = LerGrafoBin(grafo, "Vertices.bin", &res);
 	grafo = LerAdjBin(grafo, &res);
 
-	y = CalculaDistancia(grafo, 0, 3);
+	//y = CalculaDistancia(grafo, 0, 3);
 
-	printf("%d", y);
+	//printf("%d\n\n", y);
 
 	//GuardarGrafoBin(grafo, "Vertices.bin");
+
+	//y = ConverterNomeParaID(grafo, "Amares");
+
+	//printf("%d \n\n", y);
 
 	//MostraGrafo(grafo);
 
@@ -104,13 +108,18 @@ int main() {
 
 #pragma region Alugueres
 
-	//AluguerLista* listaAlugueres = NULL;
+	AluguerLista* listaAlugueres = NULL;
 
 
-	//x = lerAluguerestxt(&listaAlugueres, "Alugueres.txt");
+	x = lerAluguerestxt(&listaAlugueres, "Alugueres.txt", grafo, listaMeios );
 
-	//imprimirAluguerLista(listaAlugueres);
+	imprimirAluguerLista(listaAlugueres);
 
 #pragma endregion
+
+	aux = guardarMeiosMobilidadebin(listaMeios);
+
+	DestruirListaM(listaMeios);
+	grafo = DestruirGrafo(grafo);
 
 }

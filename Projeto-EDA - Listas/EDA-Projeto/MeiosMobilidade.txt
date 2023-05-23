@@ -1,10 +1,10 @@
 1;Bicicleta;Braga;100;1;
-2;Carro;Porto;501;
+2;Carro;Braga;501;
 3;Trotinete;Amares;751;
 4;Bicicleta;Amares;50;1;
 5;Autocarro;VilaVerde;751;
 6;Carro;Barcelos;15;1;
 7;Autocarro;Amares;20;1;
-8;Carro;Bouro;75;1;
-9;Trotinete;SantaMarta;50;1;
-10;Outro;Lago;75;1;
+8;Carro;Famalicao;75;1;
+9;Trotinete;Barcelos;50;1;
+10;Outro;Guimaraes;75;1;

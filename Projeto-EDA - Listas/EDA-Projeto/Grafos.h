@@ -120,6 +120,19 @@ Adj* InsereAdj(Adj* g, Adj* novo, bool* res);
 Vertice* ProcuraVertice(Vertice* g, int id);
 
 /**
+ * Esta função serve para converter o nome da cidade para o id
+ * 1º passo: percorrer a lista de vertices até encontrar o vertice
+ * 2º passo: retornar o id
+ * 3º passo: se não encontrar o vertice, retornar NULL
+ *
+ * \param g
+ * \param nome
+ * \return
+ */
+
+int ConverterNomeParaID(Vertice* g, char* nome);
+
+/**
  * Esta função serve para adicionar um adjacente
  * 1º passo: procurar o vertice de origem
  * 2º passo: procurar o vertice de destino

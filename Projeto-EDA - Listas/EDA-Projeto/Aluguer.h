@@ -12,6 +12,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "Clientes.h"
+#include "MeiosMobilidade.h"
+#include "Grafos.h"
 #define _CTR_SECURE_NO_WARNINGS
 
 #define A 11
@@ -46,7 +48,7 @@ typedef struct AluguerLista {
  * \return
  */
 
-int lerAluguerestxt(AluguerLista** listaAlugueres, char* filename);
+int lerAluguerestxt(AluguerLista** listaAlugueres, char* filename, Vertice* g, MeiosLista* mlista);
 
 /**
  * Esta função adiciona um aluguer à lista encadeada
@@ -72,6 +74,8 @@ AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer a);
  * \return
  */
 bool existeAluguer(AluguerLista* lista, Aluguer a);
+
+int CalcularKm(Vertice* g, MeiosLista* mlista, int idMeio, Aluguer a);
 
 #pragma region Ecra
 
