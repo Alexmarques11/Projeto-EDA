@@ -14,6 +14,7 @@
 
 #ifndef MeiosMobilidadeh
 #define MeiosMobilidadeh
+#define L 20
 
 enum TipoMeio {
 	Bicicleta,
@@ -26,7 +27,7 @@ enum TipoMeio {
 typedef struct MeiosMobilidade {
 	int id;
 	enum TipoMeio tipo;
-	char localizacao[20];
+	char localizacao[L];
 	int bateria;
 	int status;
 	int autonomia;
@@ -151,6 +152,18 @@ void DestruirListaM(MeiosLista* lista);
  */
 
 int calcularAutonomia(Meios* meio);
+
+/**
+ * Esta função serve para listar os meios de mobilidade por localização geográfica, através de um código geográfico (geocode)
+ * 1º Percorre a lista encadeada e compara o código geográfico do meio com o código inserido pelo usuário
+ * 2º Adiciona o meio à lista de meios de mobilidade por localização
+ * 3º Retorna a lista de meios de mobilidade por localização
+ * 
+ * \param $PARAMS
+ * \return $RETURN
+ */
+
+void ListarMeiosPorLocalizacao(MeiosLista* mlista, char* geocodigo, MeiosLista** listaMeios);
 
 
 #pragma region Ecra

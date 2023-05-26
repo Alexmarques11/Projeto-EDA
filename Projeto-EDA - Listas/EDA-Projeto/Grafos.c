@@ -364,19 +364,18 @@ Vertice* LerAdjBin(Vertice* g, bool* res) {
  * \return        Retorna true se existe um caminho entre a origem e o destino, caso contrário, retorna false.
  */
 
-bool DepthFirstSearchRec(Vertice* g, int origem, int dest) {
+bool DepthFirstSearchRecursivo(Vertice* g, int origem, int dest) {
 	if (origem == dest)
 		return true;
 
 	Vertice* aux = ProcuraVertice(g, origem);
 	aux->visitado = true;
-	//printf(" Vertice: %s : %d\n", aux->cidade, aux->cod);
 
 	Adj* adj = aux->adjacentes;
 	while (adj) {
 		Vertice* adjacente = ProcuraVertice(g, adj->id);
 		if (adjacente->visitado == false) {
-			bool existe = DepthFirstSearchRec(g, adj->id, dest);
+			bool existe = DepthFirstSearchRecursivo(g, adj->id, dest);
 			if (existe)
 				return true;
 		}
@@ -387,6 +386,21 @@ bool DepthFirstSearchRec(Vertice* g, int origem, int dest) {
 
 /**
  * Esta função calcula a distância entre dois vértices em um grafo.
+ * 1º passo: verificar se o grafo está vazio
+ * 2º passo: verificar se o vértice de origem e o vértice são iguais
+ * 3º passo: marcar o vértice de origem como visitado
+ * 4º passo: inicializar um array para armazenar as distâncias
+ * 5º passo: percorrer a lista de adjacentes do vértice de origem
+ * 6º passo: Uma fila é inicializada para armazenar os vértices a serem visitados
+ * 7º passo: enquanto a fila não estiver vazia, o primeiro elemento da fila é removido
+ * 8º passo: percorrer a lista de adjacentes do vértice removido
+ * 9º passo: verificar se o vértice adjacente já foi visitado
+ * 10º passo: se o vértice adjacente não foi visitado, marcar o vértice adjacente como visitado
+ * 11º passo: adicionar o vértice adjacente à fila
+ * 12º passo: se o vértice adjacente for igual ao vértice de destino, retornar a distância
+ * 13º passo: se o vértice adjacente for diferente do vértice de destino, adicionar a distância ao array
+ * 14º passo: se o array não estiver vazio, retornar a menor distância
+ * 15º passo: se o array estiver vazio, retornar -1
  *
  * \param g       Ponteiro para o primeiro vértice do grafo
  * \param origem  Valor do vértice de origem
@@ -395,17 +409,19 @@ bool DepthFirstSearchRec(Vertice* g, int origem, int dest) {
  */
 
 int CalculaDistancia(Vertice* g, int origem, int dest) {
+	// Verifica se o grafo está vazio
 	if (g == NULL)
 		return -1;
 
+	// Verifica se o vértice de origem e o vértice de destino são iguais
 	if (origem == dest)
 		return 0;
 
-	// Inicialização dos vértices
+	// Marca o vértice de origem como visitado
 	Vertice* verticeAtual = ProcuraVertice(g, origem);
 	verticeAtual->visitado = true;
 
-	// Array para armazenar as distâncias
+	// Inicializa um array para armazenar as distâncias
 	int* distancias = (int*)malloc(sizeof(int) * 100); // Tamanho máximo do array
 	for (int i = 0; i < 100; i++) {
 		distancias[i] = INT_MAX;
@@ -418,44 +434,57 @@ int CalculaDistancia(Vertice* g, int origem, int dest) {
 	int tras = 0;
 	fila[tras++] = verticeAtual;
 
+	// Executa o algoritmo de busca em largura
 	while (frente != tras) {
+		// Remove o vértice da frente da fila e considera como vértice atual
 		Vertice* v = fila[frente++];
 		Adj* adjacente = v->adjacentes;
 
+		// Explora os vértices adjacentes do vértice atual
 		while (adjacente != NULL) {
 			Vertice* adjacenteVertice = ProcuraVertice(g, adjacente->id);
 
+			// Verifica se o vértice adjacente já foi visitado
 			if (adjacenteVertice->visitado == false) {
+				// Marca o vértice adjacente como visitado
 				adjacenteVertice->visitado = true;
+
+				// Atualiza a distância do vértice adjacente
 				distancias[adjacenteVertice->id] = distancias[v->id] + adjacente->dist;
 
+				// Verifica se o vértice adjacente é o destino procurado
 				if (adjacenteVertice->id == dest) {
+					// Retorna a distância encontrada
 					int distancia = distancias[adjacenteVertice->id];
 
-					// Resetar os vértices
+					// Reseta os vértices para não visitados
 					for (int i = 0; i < tras; i++) {
 						fila[i]->visitado = false;
 					}
 					free(distancias);
 					free(fila);
+
 					return distancia;
 				}
 
+				// Adiciona o vértice adjacente à fila
 				fila[tras++] = adjacenteVertice;
 			}
 			adjacente = adjacente->next;
 		}
 	}
 
-	// Resetar os vértices
+	// Reseta os vértices para não visitados
 	for (int i = 0; i < tras; i++) {
 		fila[i]->visitado = false;
 	}
 	free(distancias);
 	free(fila);
 
-	return -1; 
+	// Retorna -1 se não foi possível encontrar um caminho entre os vértices
+	return -1;
 }
+
 
 
 

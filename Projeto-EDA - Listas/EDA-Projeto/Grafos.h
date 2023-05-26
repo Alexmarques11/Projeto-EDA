@@ -16,19 +16,18 @@
 
 #ifndef Grafosh
 #define Grafosh
-#define N 20
+#define M 20
 
 typedef struct Adjacencia {
 	int id;
-	char cidade[N];
+	char cidade[M];
 	int dist;
-	bool pcontrolo;
 	struct Adj* next;
 }Adj;
 
 typedef struct Vertice {
 	int id;
-	char cidade[N];
+	char cidade[M];
 	bool visitado;
 	struct Vertice* next;
 	struct Adj* adjacentes;
@@ -43,7 +42,7 @@ typedef struct AdjacenciaParaFicheiro {
 
 typedef struct VerticeParaFicheiro {
 	int id;
-	char cidade[N];
+	char cidade[M];
 } VerticeFile;
 
 
@@ -225,7 +224,7 @@ Adj* DestruirAdjacencia(Adj* h);
  * \return        Retorna true se existe um caminho entre a origem e o destino, caso contrário, retorna false.
  */
 
-bool DepthFirstSearchRec(Vertice* g, int origem, int dest);
+bool DepthFirstSearchRecursivo(Vertice* g, int origem, int dest);
 
 int CalculaDistancia(Vertice* g, int origem, int dest);
 

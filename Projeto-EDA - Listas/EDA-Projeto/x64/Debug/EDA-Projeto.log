@@ -1,8 +1,8 @@
 ﻿  main.c
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Grafos.h(19,1): warning C4005: 'N': macro redefinition
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Clientes.h(18,1): message : see previous definition of 'N'
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Aluguer.h(19,1): warning C4005: 'A': macro redefinition
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Clientes.h(19,1): message : see previous definition of 'A'
 C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Aluguer.h(20,1): warning C4005: 'N': macro redefinition
-C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Grafos.h(19,1): message : see previous definition of 'N'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\Clientes.h(18,1): message : see previous definition of 'N'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\main.c(35,34): warning C4047: '=': 'int' differs in levels of indirection from 'GestoresLista *'
+C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\EDA-Projeto\main.c(99,63): warning C4020: 'carregarAlugueresBinario': too many actual parameters
   EDA-Projeto.vcxproj -> C:\Users\Utilizador\Documents\Projetos C, C#\Estrutura de Dados\Projeto-EDA\Projeto-EDA - Listas\x64\Debug\EDA-Projeto.exe

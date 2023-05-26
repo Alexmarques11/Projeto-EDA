@@ -289,7 +289,48 @@ int calcularAutonomia(Meios* m) {
 	return m->autonomia;
 }
 
+/**
+ * Esta função serve para listar os meios de mobilidade por localização geográfica, através de um código geográfico (geocode)
+ * 1º Percorre a lista encadeada e compara o código geográfico do meio com o código inserido pelo usuário
+ * 2º Adiciona o meio à lista de meios de mobilidade por localização
+ * 3º Retorna a lista de meios de mobilidade por localização
+ * 
+ * \param mlista
+ * \param geocodigo
+ * \param listaMeios
+ */
 
+void ListarMeiosPorLocalizacao(MeiosLista* mlista, char* geocodigo, MeiosLista** listaMeios) {
+	MeiosLista* meio = mlista;
+
+	while (meio != NULL) {
+		if (strcmp(meio->m.localizacao, geocodigo) == 0) {
+			// O meio de mobilidade está na localização desejada, adicione as informações à lista
+			MeiosLista* novoMeio = (MeiosLista*)malloc(sizeof(MeiosLista));
+			novoMeio->m.id = meio->m.id;
+			novoMeio->m.tipo = meio->m.tipo;
+			strcpy(novoMeio->m.localizacao, meio->m.localizacao);
+			novoMeio->m.bateria = meio->m.bateria;
+			novoMeio->m.status = meio->m.status;
+			novoMeio->m.autonomia = meio->m.autonomia;
+			novoMeio->next = NULL;
+
+			// Verifica se a lista de meios está vazia
+			if (*listaMeios == NULL) {
+				*listaMeios = novoMeio;
+			}
+			else {
+				// Encontra o último elemento da lista e adiciona o novo meio no final
+				MeiosLista* ultimo = *listaMeios;
+				while (ultimo->next != NULL) {
+					ultimo = ultimo->next;
+				}
+				ultimo->next = novoMeio;
+			}
+		}
+		meio = meio->next;
+	}
+}
 
 
 #pragma region Ecra

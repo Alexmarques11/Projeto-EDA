@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   Aluguer.h
  * \brief  Ficheiro header dos alugueres
- * 
+ *
  * \author Utilizador Alexandre Marques
  * \date   April 2023
  *********************************************************************/
@@ -75,7 +75,73 @@ AluguerLista* adicionarAluguerLista(AluguerLista* lista, Aluguer a);
  */
 bool existeAluguer(AluguerLista* lista, Aluguer a);
 
+/**
+ * Esta função serve para calcular os km de um aluguer
+ * 1º Procura o meio de transporte pelo ID
+ * 2º Converte o nome da localização para ID
+ * 3º Calcula a distância entre a localização do meio de transporte e o destino do aluguer
+ * 4º Retorna a distância
+ *
+ * \param g
+ * \param mlista
+ * \param idMeio
+ * \param a
+ * \return
+ */
+
 int CalcularKm(Vertice* g, MeiosLista* mlista, int idMeio, Aluguer a);
+
+/**
+ * Esta função calcula o preço de um aluguer
+ * 1º Procura o meio de transporte pelo ID
+ * 2º Verifica o tipo de meio de transporte
+ * 3º Calcula o preço por km
+ *
+ * \param mlista
+ * \param idMeio
+ * \param a
+ * \return
+ */
+
+float CalcularPreco(MeiosLista* mlista, int idMeio, Aluguer a);
+
+
+/**
+ * Esta função guarda os alugueres de uma lista encadeada num ficheiro binário
+ * 1º Abre o ficheiro binário
+ * 2º Percorre a lista encadeada e guarda os alugueres no ficheiro
+ * 3º Fecha o ficheiro
+ *
+ * \param listaAlugueres
+ * \param nomeArquivo
+ * \return
+ */
+
+int guardarAlugueresBinario(AluguerLista* listaAlugueres, char* nomeArquivo);
+
+/**
+ * Esta função carrega os alugueres de um ficheiro binário para uma lista encadeada
+ * 1º Abre o ficheiro binário
+ * 2º Lê os alugueres do ficheiro e adiciona-os à lista encadeada
+ * 3º Retorna -1 se o ficheiro foi carregado com sucesso e -1 se não foi carregado com sucesso
+ * 4º Fecha o ficheiro
+ *
+ * \param listaAlugueres
+ * \param nomeArquivo
+ * \return
+ */
+
+int carregarAlugueresBinario(AluguerLista** listaAlugueres, char* nomeArquivo);
+
+/**
+ * Esta função serve para destruir uma lista encadeada
+ * 1º Percorre a lista encadeada e liberta a memória alocada para cada aluguer
+ * 2º Libertar a memória alocada para a lista
+ *
+ * \param listaAlugueres
+ */
+
+void destruirAluguerLista(AluguerLista* listaAlugueres);
 
 #pragma region Ecra
 
@@ -85,4 +151,3 @@ void imprimirAluguerLista(AluguerLista* lista);
 
 
 #endif // !Aluguerh
-

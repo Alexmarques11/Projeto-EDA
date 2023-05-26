@@ -18,31 +18,26 @@ int main() {
 #pragma region Clientes
 	bool aux;
 	int x;
-	//ClientesLista* listaClientes = NULL;
+
+	ClientesLista* listaClientes = NULL;
 	//x=lerClientestxt(&listaClientes);
-	//lerClientesbin(&listaClientes, "Clientes.bin");
+	lerClientesbin(&listaClientes, "Clientes.bin");
 	//adicionarNovoCliente(&listaClientes);
 	//clienteRemovidoEcra(listaClientes);
-	//system("cls");
-	//mostrarClientes(listaClientes);
 	//aux = ModificarCliente(listaClientes,"112233445", 2);
-	//aux=guardarClientesbin(listaClientes);
 	//mostrarClientes(listaClientes);
 
-	//DestruirListaC(listaClientes);
 #pragma endregion
 
 #pragma region Gestores
-	//GestoresLista* listaGestores = NULL;
+	GestoresLista* listaGestores = NULL;
 	//x=lerGestorestxt(&listaGestores);
-	//x=lerGestoresbin(&listaGestores);
+	x=lerGestoresbin(&listaGestores);
 	//adicionarNovoGestor(&listaGestores);
-	//GestorRemovidoEcra(listaGestores);
-	//system("cls");
+	//gestorRemovidoEcra(listaGestores);
 	//mostrarGestores(listaGestores);
 	//aux = guardarGestoresbin(listaGestores);
 
-	//DestruirListaG(listaGestores);
 #pragma endregion
 
 #pragma region Meios
@@ -52,7 +47,7 @@ int main() {
 	lerMeiosbin(&listaMeios);
 	//adicionarNovoMeio(&listaMeios);
 	//MeioRemovidoEcra(&listaMeios);
-	//system("cls");
+
 	//mostrarMeios(listaMeios);
 
 	//aux= ModificarMeioMobilidade(listaMeios, 1, 2);
@@ -70,7 +65,6 @@ int main() {
 		printf("Autonomia: %d\n", meioEncontrado->autonomia);
 		printf("Status: %d\n", meioEncontrado->status);
 		printf("\n");
-		// Imprima os outros campos do meio de mobilidade conforme necessário
 	}
 	*/
 	//DestruirListaM(listaMeios);
@@ -79,8 +73,8 @@ int main() {
 
 #pragma region Grafos
 
-	
-	static int total = 0; // total de vértices
+
+	static int total = 0; 
 	bool res;
 	int y = 0;
 
@@ -89,21 +83,10 @@ int main() {
 	grafo = LerGrafoBin(grafo, "Vertices.bin", &res);
 	grafo = LerAdjBin(grafo, &res);
 
-	//y = CalculaDistancia(grafo, 0, 3);
-
-	//printf("%d\n\n", y);
-
 	//GuardarGrafoBin(grafo, "Vertices.bin");
 
-	//y = ConverterNomeParaID(grafo, "Amares");
+	MostraGrafo(grafo);
 
-	//printf("%d \n\n", y);
-
-	//MostraGrafo(grafo);
-
-	//grafo = DestruirGrafo(grafo);
-	
-	
 #pragma endregion
 
 #pragma region Alugueres
@@ -111,15 +94,28 @@ int main() {
 	AluguerLista* listaAlugueres = NULL;
 
 
-	x = lerAluguerestxt(&listaAlugueres, "Alugueres.txt", grafo, listaMeios );
+	//x = lerAluguerestxt(&listaAlugueres, "Alugueres.txt", grafo, listaMeios);
 
-	imprimirAluguerLista(listaAlugueres);
+	x=carregarAlugueresBinario(&listaAlugueres, "Alugueres.bin", grafo, listaMeios);
+
+	//imprimirAluguerLista(listaAlugueres);
 
 #pragma endregion
 
-	aux = guardarMeiosMobilidadebin(listaMeios);
+#pragma region Gravações e destruições
 
+	x=guardarAlugueresBinario(listaAlugueres, "Alugueres.bin");
+	aux = guardarMeiosMobilidadebin(listaMeios);
+	aux = guardarClientesbin(listaClientes);
+	aux = guardarGestoresbin(listaGestores);
+
+
+	DestruirListaG(listaGestores);
+	DestruirListaC(listaClientes);
+	destruirAluguerLista(listaAlugueres);
 	DestruirListaM(listaMeios);
 	grafo = DestruirGrafo(grafo);
+
+#pragma endregion
 
 }
