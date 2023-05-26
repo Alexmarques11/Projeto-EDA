@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentação-Projeto-EDA: Código-Fonte de EDA-Projeto/MeiosMobilidade.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Documentação-Projeto-EDA<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_efbf5050d734c215c368624439af4a0e.html">EDA-Projeto</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">MeiosMobilidade.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_meios_mobilidade_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*****************************************************************/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma warning (disable: 4996)</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#ab020b9fb0dd05219102c78061820c55f">   13</a></span><span class="preprocessor">#define _CTR_SECURE_NO_WARNINGS</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef MeiosMobilidadeh</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#adbe0f30a9945418350f236d46a213d85">   16</a></span><span class="preprocessor">#define MeiosMobilidadeh</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">   17</a></span><span class="preprocessor">#define L 20</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29f">   19</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29f">TipoMeio</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29faa2c54228c8bab3c07908c8fdc74a983b">   20</a></span>    <a class="code hl_enumvalue" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29faa2c54228c8bab3c07908c8fdc74a983b">Bicicleta</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa7c450f1b32a2150a8f84cc4fd32ffc6c">   21</a></span>    <a class="code hl_enumvalue" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa7c450f1b32a2150a8f84cc4fd32ffc6c">Carro</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa15d8c92c552100081119e64300dbe7f5">   22</a></span>    <a class="code hl_enumvalue" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa15d8c92c552100081119e64300dbe7f5">Trotinete</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa86b9f862b0bd81e9de05ae221e40f8be">   23</a></span>    <a class="code hl_enumvalue" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa86b9f862b0bd81e9de05ae221e40f8be">Autocarro</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fac58ba030da6e844217eb7bfe0613585f">Outro</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fac58ba030da6e844217eb7bfe0613585f">   25</a></span>}<a class="code hl_enumeration" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29f">TipoMeio</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html">   27</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_meios_mobilidade.html">MeiosMobilidade</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html#a18bdc24082029ce3fae5e6cfc730ef9d">   28</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_meios_mobilidade.html#a18bdc24082029ce3fae5e6cfc730ef9d">id</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html#a39404c0395d8e20c22fe9178243846c4">   29</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29f">TipoMeio</a> <a class="code hl_variable" href="struct_meios_mobilidade.html#a39404c0395d8e20c22fe9178243846c4">tipo</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html#a39b2059c7af8c08d80a6bdbbfde16c33">   30</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_meios_mobilidade.html#a39b2059c7af8c08d80a6bdbbfde16c33">localizacao</a>[<a class="code hl_define" href="_meios_mobilidade_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>];</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html#a1f152a02d384f26bae0ca443139610d6">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_meios_mobilidade.html#a1f152a02d384f26bae0ca443139610d6">bateria</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html#a56ff313289fc30f798b1487c3069fb0b">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_meios_mobilidade.html#a56ff313289fc30f798b1487c3069fb0b">status</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade.html#a253565ca93cb4cb6d9fcc68e865b101e">   33</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_meios_mobilidade.html#a253565ca93cb4cb6d9fcc68e865b101e">autonomia</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#aea66856aab0f6a81036fdb1843a03925">   34</a></span>}<a class="code hl_typedef" href="_meios_mobilidade_8h.html#aea66856aab0f6a81036fdb1843a03925">Meios</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade_lista.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosMobilidadeLista</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade_lista.html#aafc2a93d2a0af8d2d748c53d19e6fb12">   37</a></span>    <a class="code hl_struct" href="struct_meios_mobilidade.html">Meios</a> <a class="code hl_variable" href="struct_meios_mobilidade_lista.html#aafc2a93d2a0af8d2d748c53d19e6fb12">m</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_meios_mobilidade_lista.html#a7a19419d04427927b483af7731a65172">   38</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosMobilidadeLista</a>* <a class="code hl_variable" href="struct_meios_mobilidade_lista.html#a7a19419d04427927b483af7731a65172">next</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="_meios_mobilidade_8h.html#a1bb402b146064a4875dc87861eb899d9">   39</a></span>}<a class="code hl_typedef" href="_meios_mobilidade_8h.html#a1bb402b146064a4875dc87861eb899d9">MeiosLista</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">int</span> <a class="code hl_function" href="_meios_mobilidade_8h.html#a57120d8d131c914b294cdb733c93742d">lerMeiostxt</a>(<a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>** listaMeios);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* <a class="code hl_function" href="_meios_mobilidade_8h.html#ab2768e56d58b66b127d24f9964e43621">adicionarMeioListaOrdenado</a>(<a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* listaMeiosMobilidade, <a class="code hl_struct" href="struct_meios_mobilidade.html">Meios</a> novoMeio);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_meios_mobilidade_8h.html#a43074171d6ef53607596568b56d25498">guardarMeiosMobilidadebin</a>(<a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* lista);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* <a class="code hl_function" href="_meios_mobilidade_8h.html#abf2192a80a80427462fc854072706c86">lerMeiosbin</a>(<a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>** lista);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">bool adicionarNovoMeio(MeiosLista** listaMeios);</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">bool RemoverMeio(MeiosLista** listaMeio, int id);</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"></span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">Meios* procurarMeioPorId(MeiosLista* listaMeios, int id);</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"></span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">bool ModificarMeioMobilidade(MeiosLista* listaMeios, int id, int campo);</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"></span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"></span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">void DestruirListaM(MeiosLista* lista);</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"></span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">int calcularAutonomia(Meios* meio);</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment"></span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">void ListarMeiosPorLocalizacao(MeiosLista* mlista, char* geocodigo, MeiosLista** listaMeios);</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment"></span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"></span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">#pragma region Ecra</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"></span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">void mostrarMeios(MeiosLista* lista);</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"></span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">Meios* obterDadosMeiosEcra(Meios* m);</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"></span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">bool MeioRemovidoEcra(MeiosLista** listaMeios);</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"></span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">bool ModificarDadoMeioMobilidade(MeiosLista* listaMeios, int id, int campo);</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"></span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">#pragma endregion</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"></span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">#endif // !MeiosMobilidadeh</span></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a1bb402b146064a4875dc87861eb899d9"><div class="ttname"><a href="_meios_mobilidade_8h.html#a1bb402b146064a4875dc87861eb899d9">MeiosLista</a></div><div class="ttdeci">struct MeiosMobilidadeLista MeiosLista</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a43074171d6ef53607596568b56d25498"><div class="ttname"><a href="_meios_mobilidade_8h.html#a43074171d6ef53607596568b56d25498">guardarMeiosMobilidadebin</a></div><div class="ttdeci">bool guardarMeiosMobilidadebin(MeiosLista *lista)</div><div class="ttdoc">Esta fun��o guarda a lista de meios de mobilidade no ficheiro bin�rio 1� Abre o ficheiro bin�rio para escri...</div><div class="ttdef"><b>Definição</b> FMeiosMobilidade.c:107</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a57120d8d131c914b294cdb733c93742d"><div class="ttname"><a href="_meios_mobilidade_8h.html#a57120d8d131c914b294cdb733c93742d">lerMeiostxt</a></div><div class="ttdeci">int lerMeiostxt(MeiosLista **listaMeios)</div><div class="ttdoc">Fun��o para ler os dados dos meios de mobilidade do ficheiro txt 1� L� os dados de cada meio de mobilidad...</div><div class="ttdef"><b>Definição</b> FMeiosMobilidade.c:25</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a7ff693c9076279faa53f2d6747e8d29f"><div class="ttname"><a href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29f">TipoMeio</a></div><div class="ttdeci">TipoMeio</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:19</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a7ff693c9076279faa53f2d6747e8d29fa15d8c92c552100081119e64300dbe7f5"><div class="ttname"><a href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa15d8c92c552100081119e64300dbe7f5">Trotinete</a></div><div class="ttdeci">@ Trotinete</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:22</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a7ff693c9076279faa53f2d6747e8d29fa7c450f1b32a2150a8f84cc4fd32ffc6c"><div class="ttname"><a href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa7c450f1b32a2150a8f84cc4fd32ffc6c">Carro</a></div><div class="ttdeci">@ Carro</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:21</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a7ff693c9076279faa53f2d6747e8d29fa86b9f862b0bd81e9de05ae221e40f8be"><div class="ttname"><a href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fa86b9f862b0bd81e9de05ae221e40f8be">Autocarro</a></div><div class="ttdeci">@ Autocarro</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:23</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a7ff693c9076279faa53f2d6747e8d29faa2c54228c8bab3c07908c8fdc74a983b"><div class="ttname"><a href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29faa2c54228c8bab3c07908c8fdc74a983b">Bicicleta</a></div><div class="ttdeci">@ Bicicleta</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:20</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_a7ff693c9076279faa53f2d6747e8d29fac58ba030da6e844217eb7bfe0613585f"><div class="ttname"><a href="_meios_mobilidade_8h.html#a7ff693c9076279faa53f2d6747e8d29fac58ba030da6e844217eb7bfe0613585f">Outro</a></div><div class="ttdeci">@ Outro</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:24</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_aa73214aa5f2f94f63d90bb4e3d99fe53"><div class="ttname"><a href="_meios_mobilidade_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a></div><div class="ttdeci">#define L</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:17</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_ab2768e56d58b66b127d24f9964e43621"><div class="ttname"><a href="_meios_mobilidade_8h.html#ab2768e56d58b66b127d24f9964e43621">adicionarMeioListaOrdenado</a></div><div class="ttdeci">MeiosLista * adicionarMeioListaOrdenado(MeiosLista *listaMeiosMobilidade, Meios novoMeio)</div><div class="ttdoc">Insere Meios no incio de uma lista encadeada 1� Cria um novo n� com os dados do meio de mobilidade 2� In...</div><div class="ttdef"><b>Definição</b> FMeiosMobilidade.c:74</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_abf2192a80a80427462fc854072706c86"><div class="ttname"><a href="_meios_mobilidade_8h.html#abf2192a80a80427462fc854072706c86">lerMeiosbin</a></div><div class="ttdeci">MeiosLista * lerMeiosbin(MeiosLista **lista)</div><div class="ttdoc">Esta fun��o l� os dados dos meios de mobilidade do ficheiro bin�rio 1� Abre o ficheiro bin�rio para leitura 2...</div><div class="ttdef"><b>Definição</b> FMeiosMobilidade.c:129</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html_aea66856aab0f6a81036fdb1843a03925"><div class="ttname"><a href="_meios_mobilidade_8h.html#aea66856aab0f6a81036fdb1843a03925">Meios</a></div><div class="ttdeci">struct MeiosMobilidade Meios</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html"><div class="ttname"><a href="struct_meios_mobilidade.html">MeiosMobilidade</a></div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:27</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html_a18bdc24082029ce3fae5e6cfc730ef9d"><div class="ttname"><a href="struct_meios_mobilidade.html#a18bdc24082029ce3fae5e6cfc730ef9d">MeiosMobilidade::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:28</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html_a1f152a02d384f26bae0ca443139610d6"><div class="ttname"><a href="struct_meios_mobilidade.html#a1f152a02d384f26bae0ca443139610d6">MeiosMobilidade::bateria</a></div><div class="ttdeci">int bateria</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:31</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html_a253565ca93cb4cb6d9fcc68e865b101e"><div class="ttname"><a href="struct_meios_mobilidade.html#a253565ca93cb4cb6d9fcc68e865b101e">MeiosMobilidade::autonomia</a></div><div class="ttdeci">int autonomia</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:33</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html_a39404c0395d8e20c22fe9178243846c4"><div class="ttname"><a href="struct_meios_mobilidade.html#a39404c0395d8e20c22fe9178243846c4">MeiosMobilidade::tipo</a></div><div class="ttdeci">enum TipoMeio tipo</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:29</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html_a39b2059c7af8c08d80a6bdbbfde16c33"><div class="ttname"><a href="struct_meios_mobilidade.html#a39b2059c7af8c08d80a6bdbbfde16c33">MeiosMobilidade::localizacao</a></div><div class="ttdeci">char localizacao[L]</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:30</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_html_a56ff313289fc30f798b1487c3069fb0b"><div class="ttname"><a href="struct_meios_mobilidade.html#a56ff313289fc30f798b1487c3069fb0b">MeiosMobilidade::status</a></div><div class="ttdeci">int status</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:32</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_lista_html"><div class="ttname"><a href="struct_meios_mobilidade_lista.html">MeiosMobilidadeLista</a></div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:36</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_lista_html_a7a19419d04427927b483af7731a65172"><div class="ttname"><a href="struct_meios_mobilidade_lista.html#a7a19419d04427927b483af7731a65172">MeiosMobilidadeLista::next</a></div><div class="ttdeci">struct MeiosMobilidadeLista * next</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:38</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_lista_html_aafc2a93d2a0af8d2d748c53d19e6fb12"><div class="ttname"><a href="struct_meios_mobilidade_lista.html#aafc2a93d2a0af8d2d748c53d19e6fb12">MeiosMobilidadeLista::m</a></div><div class="ttdeci">Meios m</div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

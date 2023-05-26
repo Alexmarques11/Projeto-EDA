@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['m_0',['m',['../struct_meios_mobilidade_lista.html#aafc2a93d2a0af8d2d748c53d19e6fb12',1,'MeiosMobilidadeLista']]],
+  ['m_1',['M',['../_grafos_8h.html#a52037c938e3c1b126c6277da5ca689d0',1,'Grafos.h']]],
+  ['main_2',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]],
+  ['main_2ec_3',['main.c',['../main_8c.html',1,'']]],
+  ['meioremovidoecra_4',['MeioRemovidoEcra',['../_f_meios_mobilidade_8c.html#abbe15a668c671adb9507eff02de17fdd',1,'MeioRemovidoEcra(MeiosLista **listaMeios):&#160;FMeiosMobilidade.c'],['../_meios_mobilidade_8h.html#abbe15a668c671adb9507eff02de17fdd',1,'MeioRemovidoEcra(MeiosLista **listaMeios):&#160;FMeiosMobilidade.c']]],
+  ['meios_5',['Meios',['../_meios_mobilidade_8h.html#aea66856aab0f6a81036fdb1843a03925',1,'MeiosMobilidade.h']]],
+  ['meioslista_6',['MeiosLista',['../_meios_mobilidade_8h.html#a1bb402b146064a4875dc87861eb899d9',1,'MeiosMobilidade.h']]],
+  ['meiosmobilidade_7',['MeiosMobilidade',['../struct_meios_mobilidade.html',1,'']]],
+  ['meiosmobilidade_2eh_8',['MeiosMobilidade.h',['../_meios_mobilidade_8h.html',1,'']]],
+  ['meiosmobilidadeh_9',['MeiosMobilidadeh',['../_meios_mobilidade_8h.html#adbe0f30a9945418350f236d46a213d85',1,'MeiosMobilidade.h']]],
+  ['meiosmobilidadelista_10',['MeiosMobilidadeLista',['../struct_meios_mobilidade_lista.html',1,'']]],
+  ['modificagestor_11',['ModificaGestor',['../_gestores_8h.html#a3496269ade26bc5d9ad11b619923f68d',1,'ModificaGestor(GestoresLista *listaGestores, int id, int campo):&#160;FGestores.c'],['../_f_gestores_8c.html#a3496269ade26bc5d9ad11b619923f68d',1,'ModificaGestor(GestoresLista *listaGestores, int id, int campo):&#160;FGestores.c']]],
+  ['modificarcliente_12',['ModificarCliente',['../_f_clientes_8c.html#a2747f855c4d5a93718cc7dfd3ad8382d',1,'ModificarCliente(ClientesLista *listaClientes, char *nif, int campo):&#160;FClientes.c'],['../_clientes_8h.html#a2747f855c4d5a93718cc7dfd3ad8382d',1,'ModificarCliente(ClientesLista *listaClientes, char *nif, int campo):&#160;FClientes.c']]],
+  ['modificardadocliente_13',['ModificarDadoCliente',['../_clientes_8h.html#af9165573c7e912dd8cd8751a20b5c26f',1,'ModificarDadoCliente(ClientesLista *listaClientes, char *nif, int campo):&#160;FClientes.c'],['../_f_clientes_8c.html#af9165573c7e912dd8cd8751a20b5c26f',1,'ModificarDadoCliente(ClientesLista *listaClientes, char *nif, int campo):&#160;FClientes.c']]],
+  ['modificardadogestor_14',['ModificarDadoGestor',['../_f_gestores_8c.html#a9d6eb3511d7f2bea2d235a6ef1df94a3',1,'ModificarDadoGestor(GestoresLista *listaGestores, int id, int campo):&#160;FGestores.c'],['../_gestores_8h.html#a9d6eb3511d7f2bea2d235a6ef1df94a3',1,'ModificarDadoGestor(GestoresLista *listaGestores, int id, int campo):&#160;FGestores.c']]],
+  ['modificardadomeiomobilidade_15',['ModificarDadoMeioMobilidade',['../_f_meios_mobilidade_8c.html#ac1a86c5677089ee329dfa95d33e133fe',1,'ModificarDadoMeioMobilidade(MeiosLista *listaMeios, int id, int campo):&#160;FMeiosMobilidade.c'],['../_meios_mobilidade_8h.html#ac1a86c5677089ee329dfa95d33e133fe',1,'ModificarDadoMeioMobilidade(MeiosLista *listaMeios, int id, int campo):&#160;FMeiosMobilidade.c']]],
+  ['modificarmeiomobilidade_16',['ModificarMeioMobilidade',['../_f_meios_mobilidade_8c.html#a0300675973deb18aa9ec46676f5710ee',1,'ModificarMeioMobilidade(MeiosLista *listaMeios, int id, int campo):&#160;FMeiosMobilidade.c'],['../_meios_mobilidade_8h.html#a0300675973deb18aa9ec46676f5710ee',1,'ModificarMeioMobilidade(MeiosLista *listaMeios, int id, int campo):&#160;FMeiosMobilidade.c']]],
+  ['morada_17',['morada',['../struct_clientes.html#a430f03511b9e752d0c93fb923bd231a6',1,'Clientes']]],
+  ['mostraadjacencias_18',['MostraAdjacencias',['../_grafos_8c.html#a48bf3eac39b63746c647c9ad515077fd',1,'Grafos.c']]],
+  ['mostragrafo_19',['MostraGrafo',['../_grafos_8c.html#a167543a96ceb172a43ece7e79625acd1',1,'MostraGrafo(Vertice *g):&#160;Grafos.c'],['../_grafos_8h.html#a167543a96ceb172a43ece7e79625acd1',1,'MostraGrafo(Vertice *g):&#160;Grafos.c']]],
+  ['mostrarclientes_20',['mostrarClientes',['../_f_clientes_8c.html#abc0fa038d3ec9987b96cc2286136a560',1,'FClientes.c']]],
+  ['mostrargestores_21',['mostrarGestores',['../_f_gestores_8c.html#ac877dbbc17b6b5193a9bb4de562f4d1f',1,'mostrarGestores(GestoresLista *lista):&#160;FGestores.c'],['../_gestores_8h.html#ac877dbbc17b6b5193a9bb4de562f4d1f',1,'mostrarGestores(GestoresLista *lista):&#160;FGestores.c']]],
+  ['mostrarmeios_22',['mostrarMeios',['../_f_meios_mobilidade_8c.html#a68dce92fddf322246e7847bd7db35d51',1,'mostrarMeios(MeiosLista *lista):&#160;FMeiosMobilidade.c'],['../_meios_mobilidade_8h.html#a68dce92fddf322246e7847bd7db35d51',1,'mostrarMeios(MeiosLista *lista):&#160;FMeiosMobilidade.c']]]
+];

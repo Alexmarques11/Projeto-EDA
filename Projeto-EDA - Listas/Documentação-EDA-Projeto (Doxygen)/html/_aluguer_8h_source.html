@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Documentação-Projeto-EDA: Código-Fonte de EDA-Projeto/Aluguer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Documentação-Projeto-EDA<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_efbf5050d734c215c368624439af4a0e.html">EDA-Projeto</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Aluguer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_aluguer_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*****************************************************************/</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#pragma warning (disable: 4996)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_clientes_8h.html">Clientes.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_meios_mobilidade_8h.html">MeiosMobilidade.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_grafos_8h.html">Grafos.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define _CTR_SECURE_NO_WARNINGS</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_clientes_8h.html#a955f504eccf76b4eb2489c0adab03121">   19</a></span><span class="preprocessor">#define A 11</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_clientes_8h.html#a0240ac851181b84ac374872dc5434ee4">   20</a></span><span class="preprocessor">#define N 10</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef Aluguerh</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define Aluguerh</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_aluguer.html">   26</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_aluguer.html#af1906e4b06a9a0138a1aa7ccd702ea06">   27</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_aluguer.html#af1906e4b06a9a0138a1aa7ccd702ea06">id</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_aluguer.html#a2e6bd8fd835780b03fd1a58af8431ec5">   28</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_aluguer.html#a2e6bd8fd835780b03fd1a58af8431ec5">nif</a>[<a class="code hl_define" href="_clientes_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_aluguer.html#a7013f51bce92ee3b451cb0009a7926bf">   29</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_aluguer.html#a7013f51bce92ee3b451cb0009a7926bf">idMeio</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_aluguer.html#a06b5d9748b2305152eafdd8159806361">   30</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_aluguer.html#a06b5d9748b2305152eafdd8159806361">data</a>[<a class="code hl_define" href="_clientes_8h.html#a955f504eccf76b4eb2489c0adab03121">A</a>];</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_aluguer.html#aee2ea50d0a11afeb6636c78d1c7ecf24">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_aluguer.html#aee2ea50d0a11afeb6636c78d1c7ecf24">idDestino</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_aluguer.html#a927fd8b9982b3ccaf5d2dde2ee0dc4d0">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_aluguer.html#a927fd8b9982b3ccaf5d2dde2ee0dc4d0">km</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_aluguer.html#a244ea2911ca08a98d609442bd751c81c">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_aluguer.html#a244ea2911ca08a98d609442bd751c81c">preco</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="_aluguer_8h.html#afb37cef674625047ed413fd6713ce3c6">   34</a></span>}<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_aluguer_lista.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">   37</a></span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> <a class="code hl_variable" href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">a</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_aluguer_lista.html#a1e22780f229657c71b72818c8b6d3f6c">   38</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* <a class="code hl_variable" href="struct_aluguer_lista.html#a1e22780f229657c71b72818c8b6d3f6c">next</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="_aluguer_8h.html#aea041d1430239b429d80dcc2540a1ec7">   39</a></span>}<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">int</span> <a class="code hl_function" href="_aluguer_8h.html#ab982f8d9a16b4383c993db6470faadaf">lerAluguerestxt</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>** listaAlugueres, <span class="keywordtype">char</span>* filename, <a class="code hl_struct" href="struct_vertice.html">Vertice</a>* g, <a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* mlista);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* <a class="code hl_function" href="_aluguer_8h.html#ac543c991e726c8f5137ac5144dbe0997">adicionarAluguerLista</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* lista, <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> <a class="code hl_variable" href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">a</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_aluguer_8h.html#a7bfc914ba3ff4b4a7959d48c2307a031">existeAluguer</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* lista, <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> <a class="code hl_variable" href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">a</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">int</span> <a class="code hl_function" href="_aluguer_8h.html#a74b539ea7490b13163f7d2a58aca955b">CalcularKm</a>(<a class="code hl_struct" href="struct_vertice.html">Vertice</a>* g, <a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* mlista, <span class="keywordtype">int</span> idMeio, <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> <a class="code hl_variable" href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">a</a>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keywordtype">float</span> <a class="code hl_function" href="_aluguer_8h.html#a47b856028e0d6995da83cfd2db8bf014">CalcularPreco</a>(<a class="code hl_struct" href="struct_meios_mobilidade_lista.html">MeiosLista</a>* mlista, <span class="keywordtype">int</span> idMeio, <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> <a class="code hl_variable" href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">a</a>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keywordtype">int</span> <a class="code hl_function" href="_aluguer_8h.html#a539f40f022425c76edb539c81ae9ff3d">guardarAlugueresBinario</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* listaAlugueres, <span class="keywordtype">char</span>* nomeArquivo);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keywordtype">int</span> <a class="code hl_function" href="_aluguer_8h.html#a65330ccc544b280274e8f805553cadba">carregarAlugueresBinario</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>** listaAlugueres, <span class="keywordtype">char</span>* nomeArquivo);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keywordtype">void</span> <a class="code hl_function" href="_aluguer_8h.html#ad8a8409624b6438b5a9ada60afad4f25">destruirAluguerLista</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* listaAlugueres);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">#pragma region Ecra</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keywordtype">void</span> <a class="code hl_function" href="_aluguer_8h.html#a63063fe5d2e8add93ccc2130f8215415">imprimirAluguerLista</a>(<a class="code hl_struct" href="struct_aluguer_lista.html">AluguerLista</a>* lista);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#endif </span><span class="comment">// !Aluguerh</span></div>
+<div class="ttc" id="a_aluguer_8h_html_a47b856028e0d6995da83cfd2db8bf014"><div class="ttname"><a href="_aluguer_8h.html#a47b856028e0d6995da83cfd2db8bf014">CalcularPreco</a></div><div class="ttdeci">float CalcularPreco(MeiosLista *mlista, int idMeio, Aluguer a)</div><div class="ttdef"><b>Definição</b> FAluguer.c:79</div></div>
+<div class="ttc" id="a_aluguer_8h_html_a539f40f022425c76edb539c81ae9ff3d"><div class="ttname"><a href="_aluguer_8h.html#a539f40f022425c76edb539c81ae9ff3d">guardarAlugueresBinario</a></div><div class="ttdeci">int guardarAlugueresBinario(AluguerLista *listaAlugueres, char *nomeArquivo)</div><div class="ttdef"><b>Definição</b> FAluguer.c:174</div></div>
+<div class="ttc" id="a_aluguer_8h_html_a63063fe5d2e8add93ccc2130f8215415"><div class="ttname"><a href="_aluguer_8h.html#a63063fe5d2e8add93ccc2130f8215415">imprimirAluguerLista</a></div><div class="ttdeci">void imprimirAluguerLista(AluguerLista *lista)</div><div class="ttdef"><b>Definição</b> FAluguer.c:236</div></div>
+<div class="ttc" id="a_aluguer_8h_html_a65330ccc544b280274e8f805553cadba"><div class="ttname"><a href="_aluguer_8h.html#a65330ccc544b280274e8f805553cadba">carregarAlugueresBinario</a></div><div class="ttdeci">int carregarAlugueresBinario(AluguerLista **listaAlugueres, char *nomeArquivo)</div><div class="ttdef"><b>Definição</b> FAluguer.c:203</div></div>
+<div class="ttc" id="a_aluguer_8h_html_a74b539ea7490b13163f7d2a58aca955b"><div class="ttname"><a href="_aluguer_8h.html#a74b539ea7490b13163f7d2a58aca955b">CalcularKm</a></div><div class="ttdeci">int CalcularKm(Vertice *g, MeiosLista *mlista, int idMeio, Aluguer a)</div><div class="ttdef"><b>Definição</b> FAluguer.c:56</div></div>
+<div class="ttc" id="a_aluguer_8h_html_a7bfc914ba3ff4b4a7959d48c2307a031"><div class="ttname"><a href="_aluguer_8h.html#a7bfc914ba3ff4b4a7959d48c2307a031">existeAluguer</a></div><div class="ttdeci">bool existeAluguer(AluguerLista *lista, Aluguer a)</div><div class="ttdef"><b>Definição</b> FAluguer.c:152</div></div>
+<div class="ttc" id="a_aluguer_8h_html_ab982f8d9a16b4383c993db6470faadaf"><div class="ttname"><a href="_aluguer_8h.html#ab982f8d9a16b4383c993db6470faadaf">lerAluguerestxt</a></div><div class="ttdeci">int lerAluguerestxt(AluguerLista **listaAlugueres, char *filename, Vertice *g, MeiosLista *mlista)</div><div class="ttdef"><b>Definição</b> FAluguer.c:22</div></div>
+<div class="ttc" id="a_aluguer_8h_html_ac543c991e726c8f5137ac5144dbe0997"><div class="ttname"><a href="_aluguer_8h.html#ac543c991e726c8f5137ac5144dbe0997">adicionarAluguerLista</a></div><div class="ttdeci">AluguerLista * adicionarAluguerLista(AluguerLista *lista, Aluguer a)</div><div class="ttdef"><b>Definição</b> FAluguer.c:113</div></div>
+<div class="ttc" id="a_aluguer_8h_html_ad8a8409624b6438b5a9ada60afad4f25"><div class="ttname"><a href="_aluguer_8h.html#ad8a8409624b6438b5a9ada60afad4f25">destruirAluguerLista</a></div><div class="ttdeci">void destruirAluguerLista(AluguerLista *listaAlugueres)</div><div class="ttdef"><b>Definição</b> FAluguer.c:224</div></div>
+<div class="ttc" id="a_clientes_8h_html"><div class="ttname"><a href="_clientes_8h.html">Clientes.h</a></div><div class="ttdoc">Ficheiro header dos clientes.</div></div>
+<div class="ttc" id="a_clientes_8h_html_a0240ac851181b84ac374872dc5434ee4"><div class="ttname"><a href="_clientes_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a></div><div class="ttdeci">#define N</div><div class="ttdef"><b>Definição</b> Aluguer.h:20</div></div>
+<div class="ttc" id="a_clientes_8h_html_a955f504eccf76b4eb2489c0adab03121"><div class="ttname"><a href="_clientes_8h.html#a955f504eccf76b4eb2489c0adab03121">A</a></div><div class="ttdeci">#define A</div><div class="ttdef"><b>Definição</b> Aluguer.h:19</div></div>
+<div class="ttc" id="a_grafos_8h_html"><div class="ttname"><a href="_grafos_8h.html">Grafos.h</a></div><div class="ttdoc">Ficheiro header para a estrutura de dados grafos.</div></div>
+<div class="ttc" id="a_meios_mobilidade_8h_html"><div class="ttname"><a href="_meios_mobilidade_8h.html">MeiosMobilidade.h</a></div><div class="ttdoc">Ficheiro header dos meios de mobilidade.</div></div>
+<div class="ttc" id="astruct_aluguer_html"><div class="ttname"><a href="struct_aluguer.html">Aluguer</a></div><div class="ttdef"><b>Definição</b> Aluguer.h:26</div></div>
+<div class="ttc" id="astruct_aluguer_html_a06b5d9748b2305152eafdd8159806361"><div class="ttname"><a href="struct_aluguer.html#a06b5d9748b2305152eafdd8159806361">Aluguer::data</a></div><div class="ttdeci">char data[A]</div><div class="ttdef"><b>Definição</b> Aluguer.h:30</div></div>
+<div class="ttc" id="astruct_aluguer_html_a244ea2911ca08a98d609442bd751c81c"><div class="ttname"><a href="struct_aluguer.html#a244ea2911ca08a98d609442bd751c81c">Aluguer::preco</a></div><div class="ttdeci">float preco</div><div class="ttdef"><b>Definição</b> Aluguer.h:33</div></div>
+<div class="ttc" id="astruct_aluguer_html_a2e6bd8fd835780b03fd1a58af8431ec5"><div class="ttname"><a href="struct_aluguer.html#a2e6bd8fd835780b03fd1a58af8431ec5">Aluguer::nif</a></div><div class="ttdeci">char nif[N]</div><div class="ttdef"><b>Definição</b> Aluguer.h:28</div></div>
+<div class="ttc" id="astruct_aluguer_html_a7013f51bce92ee3b451cb0009a7926bf"><div class="ttname"><a href="struct_aluguer.html#a7013f51bce92ee3b451cb0009a7926bf">Aluguer::idMeio</a></div><div class="ttdeci">int idMeio</div><div class="ttdef"><b>Definição</b> Aluguer.h:29</div></div>
+<div class="ttc" id="astruct_aluguer_html_a927fd8b9982b3ccaf5d2dde2ee0dc4d0"><div class="ttname"><a href="struct_aluguer.html#a927fd8b9982b3ccaf5d2dde2ee0dc4d0">Aluguer::km</a></div><div class="ttdeci">int km</div><div class="ttdef"><b>Definição</b> Aluguer.h:32</div></div>
+<div class="ttc" id="astruct_aluguer_html_aee2ea50d0a11afeb6636c78d1c7ecf24"><div class="ttname"><a href="struct_aluguer.html#aee2ea50d0a11afeb6636c78d1c7ecf24">Aluguer::idDestino</a></div><div class="ttdeci">int idDestino</div><div class="ttdef"><b>Definição</b> Aluguer.h:31</div></div>
+<div class="ttc" id="astruct_aluguer_html_af1906e4b06a9a0138a1aa7ccd702ea06"><div class="ttname"><a href="struct_aluguer.html#af1906e4b06a9a0138a1aa7ccd702ea06">Aluguer::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definição</b> Aluguer.h:27</div></div>
+<div class="ttc" id="astruct_aluguer_lista_html"><div class="ttname"><a href="struct_aluguer_lista.html">AluguerLista</a></div><div class="ttdef"><b>Definição</b> Aluguer.h:36</div></div>
+<div class="ttc" id="astruct_aluguer_lista_html_a1e22780f229657c71b72818c8b6d3f6c"><div class="ttname"><a href="struct_aluguer_lista.html#a1e22780f229657c71b72818c8b6d3f6c">AluguerLista::next</a></div><div class="ttdeci">struct AluguerLista * next</div><div class="ttdef"><b>Definição</b> Aluguer.h:38</div></div>
+<div class="ttc" id="astruct_aluguer_lista_html_aa07fc4df08668fa00a18818d627cae84"><div class="ttname"><a href="struct_aluguer_lista.html#aa07fc4df08668fa00a18818d627cae84">AluguerLista::a</a></div><div class="ttdeci">Aluguer a</div><div class="ttdef"><b>Definição</b> Aluguer.h:37</div></div>
+<div class="ttc" id="astruct_meios_mobilidade_lista_html"><div class="ttname"><a href="struct_meios_mobilidade_lista.html">MeiosMobilidadeLista</a></div><div class="ttdef"><b>Definição</b> MeiosMobilidade.h:36</div></div>
+<div class="ttc" id="astruct_vertice_html"><div class="ttname"><a href="struct_vertice.html">Vertice</a></div><div class="ttdef"><b>Definição</b> Grafos.h:28</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>
